@@ -2,10 +2,14 @@
 
 const int vaT18 = 18;            // Ставка НДС 18
 const int vaT10 = 10;            // Ставка НДС 18
-double priCe1 = 69;
-double priCe2 = 70;
-double amt1 = 1;
-double amt2 = 1;
+Console.Write("Введите стоимость первого продукта: ");
+double priCe1 = double.Parse(Console.ReadLine()!);
+Console.Write("Введите количество первого продукта: ");
+double amt1 = double.Parse(Console.ReadLine()!);
+Console.Write("Введите стоимость второго продукта: ");
+double priCe2 = double.Parse(Console.ReadLine()!);
+Console.Write("Введите количество первого продукта: ");
+double amt2 = double.Parse(Console.ReadLine()!);
 double tot1 = priCe1 * amt1;
 double tot2 = priCe2 * amt2;
 double totSum = tot1 + tot2;
