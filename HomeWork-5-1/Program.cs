@@ -4,7 +4,7 @@ const double Ksm = 0.1;             // Коэффициент пересчета
 const double Km = 0.001;            // Коэффициент пересчета в метры
 const double Kkm = 0.000001;        // Коэффициент пересчета в километры
 const double Kmile = 0.000000621;   // Коэффициент пересчета в мили
-const double Kyard = 0.00109;       // Коэффициент пересчета в ярды
+const double Kyard = 0.0009144;     // Коэффициент пересчета в ярды
 
 Console.Write("Введите значение в мм: ");
 double mm = double.Parse(Console.ReadLine()!);
