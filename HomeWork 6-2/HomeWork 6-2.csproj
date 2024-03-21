@@ -3,13 +3,9 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>net6.0</TargetFramework>
-    <RootNamespace>HomeWork_6_1</RootNamespace>
+    <RootNamespace>HomeWork_6_2</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\HomeWork 6-2\HomeWork 6-2.csproj" />
-  </ItemGroup>
 
 </Project>
