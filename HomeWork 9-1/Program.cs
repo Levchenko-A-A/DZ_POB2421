@@ -66,7 +66,7 @@ Console.WriteLine($"DEC: {value1,7}\n" +
 //249, (ключ)8;
 //Проработать это тщательно!
 
-Console.WriteLine("Задача 2-2");
+Console.WriteLine("Задача 3");
 value1 = 249;
 int key = 8;
 value2 = value1^key;
