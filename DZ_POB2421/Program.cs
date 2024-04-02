@@ -8,5 +8,6 @@
 //Console.WriteLine($"int.MaxValue = {Int64.MaxValue}");
 //Console.WriteLine($"int.MinValue = {int.MinValue}");
 //Console.WriteLine($"int.MaxValue = {int.MaxValue}");
-
 //https://github.com/rakdav/POB2421/blob/master/Lesson4/Program.cs
+string longString = new string('a', 1073741791);
+Console.WriteLine(longString);
