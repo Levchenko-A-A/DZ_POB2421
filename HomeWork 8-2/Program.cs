@@ -27,3 +27,4 @@ vegetables /= 4;
 Console.WriteLine($"Свеклы для супа понадобилось {vegetables} кг.");
 vegetables /= 2;
 Console.WriteLine($"А лука повар потратил для супа {vegetables} кг.");
+ 
