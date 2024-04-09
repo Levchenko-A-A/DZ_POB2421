@@ -1,12 +1,16 @@
 ﻿Console.Write("Введите значение окружающей температуры: ");
 double temp = double.Parse(Console.ReadLine()!);
-if (temp < 20)
+if (temp < 20 && temp >= -40)
 {
     Console.WriteLine("При температуре ниже 20 градусов можно выпустить на прогулку: медведей, волков и пингвинов.");
 }
-else if (temp > 20)
+else if (temp > 20 && temp <= 45)
 {
     Console.WriteLine("При температуре выше 20 градусов можно выпустить на прогулку: слонов, жтрафов и львов.");
 }
-else 
+else if (temp == 20)
+{
     Console.WriteLine("При температуре равной 20 градусов можно выпустить на прогулку: кенгуру.");
+}
+else 
+    Console.WriteLine("Ни время для прогулок животных");
