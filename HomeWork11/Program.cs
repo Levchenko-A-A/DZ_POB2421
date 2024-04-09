@@ -1,0 +1,90 @@
+﻿double summ = 0;
+int greate10 = 0;
+int less10 = 0;
+int max = int.MinValue;
+int min = int.MaxValue;
+
+int counterOne = 0;
+Console.Write("Введите значение 1-го целочисленного числа:");
+int numberOne = int.Parse(Console.ReadLine()!);
+summ += numberOne;
+Console.Write("Введите значение 2-го целочисленного числа:");
+int numberTwo = int.Parse(Console.ReadLine()!);
+summ += numberTwo;
+Console.Write("Введите значение 3-го целочисленного числа:");
+int numberThree = int.Parse(Console.ReadLine()!);
+summ += numberThree;
+Console.Write("Введите значение 4-го целочисленного числа:");
+int numberFour = int.Parse(Console.ReadLine()!);
+summ += numberFour;
+Console.Write("Введите значение 5-го целочисленного числа:");
+int numberFive = int.Parse(Console.ReadLine()!);
+summ += numberFive;
+Console.Write("Введите значение 6-го целочисленного числа:");
+int numberSix = int.Parse(Console.ReadLine()!);
+summ += numberSix;
+Console.Write("Введите значение 7-го целочисленного числа:");
+int numberSeven = int.Parse(Console.ReadLine()!);
+summ += numberSeven;
+Console.Write("Введите значение 8-го целочисленного числа:");
+int numberEight = int.Parse(Console.ReadLine()!);
+summ += numberEight;
+Console.Write("Введите значение 9-го целочисленного числа:");
+int numberNine = int.Parse(Console.ReadLine()!);
+summ += numberNine;
+Console.Write("Введите значение 10-го целочисленного числа:");
+int numberTen = int.Parse(Console.ReadLine()!);
+summ += numberTen;
+
+int counter = 0;
+
+if (numberOne > 10) greate10++;
+if (numberTwo > 10) greate10++;
+if (numberThree > 10) greate10++;
+if (numberFour > 10) greate10++;
+if (numberFive > 10) greate10++;
+if (numberSix > 10) greate10++;
+if (numberSeven > 10) greate10++;
+if (numberEight > 10) greate10++;
+if (numberNine > 10) greate10++;
+if (numberTen > 10) greate10++;
+
+if (numberOne < -10) less10++;
+if (numberTwo < -10) less10++;
+if (numberThree < -10) less10++;
+if (numberFour < -10) less10++;
+if (numberFive < -10) less10++;
+if (numberSix < -10) less10++;
+if (numberSeven < -10) less10++;
+if (numberEight < -10) less10++;
+if (numberNine < -10) less10++;
+if (numberTen < -10) less10++;
+
+if (numberOne > max ) max=numberOne;
+if (numberTwo > max) max=numberTwo;
+if (numberThree > max) max=numberThree;
+if (numberFour > max) max=numberFour;
+if (numberFive > max) max = numberFive;
+if (numberSix > max) max = numberSix;
+if (numberSeven > max) max = numberSeven;
+if (numberEight > max) max = numberEight;
+if (numberNine > max) max = numberNine;
+if (numberTen > max) max = numberTen;
+
+if (numberOne < min) min = numberOne;
+if (numberTwo < min) min = numberTwo;
+if (numberThree < min) min = numberThree;
+if (numberFour < min) min = numberFour;
+if (numberFive < min) min = numberFive;
+if (numberSix < min) min = numberSix;
+if (numberSeven < min) min = numberSeven;
+if (numberEight < min) min = numberEight;
+if (numberNine < min) min = numberNine;
+if (numberTen < min) min = numberTen;
+
+Console.WriteLine($"Сумма всех чисел: {summ}");
+Console.WriteLine( (greate10==0) ? "В списке нет чисел больше 10":$"Количество чисел больше 10: {greate10}");
+Console.WriteLine( (less10==0) ? "В списке нет чисел меньше -10" : $"Количество чисел больше 10: {less10}");
+Console.WriteLine($"Среднее арифметическое всех чисел {Math.Round(summ/10,2)}");
+Console.WriteLine($"Минимальное значение: {min}\n" +
+                  $"Максимальное значение: {max}");
