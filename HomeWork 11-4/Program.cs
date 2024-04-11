@@ -39,7 +39,7 @@ int month2 = random2.Next(1, 13);
 switch (month2)
 {
     case 1: Console.WriteLine($"Компьютер загадал: Январь"); break;
-    case 2: Console.WriteLine($"Компьютер загадал: Февоаль"); break;
+    case 2: Console.WriteLine($"Компьютер загадал: Февраль"); break;
     case 3: Console.WriteLine($"Компьютер загадал: Март"); break;
     case 4: Console.WriteLine($"Компьютер загадал: Апрель"); break;
     case 5: Console.WriteLine($"Компьютер загадал: Май"); break;
