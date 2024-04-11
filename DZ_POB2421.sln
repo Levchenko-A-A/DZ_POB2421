@@ -23,6 +23,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HomeWork 9-1", "HomeWork 9-
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HomeWork 9-2", "HomeWork 9-2\HomeWork 9-2.csproj", "{B07FBBAA-670D-4139-8FF2-9EA04C563FF7}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HomeWork 11-3", "HomeWork 11-3\HomeWork 11-3.csproj", "{2F05CB9A-746E-49B2-AE6B-0889A0A6DBE9}"
+EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HomeWork10-1", "HomeWork10-1\HomeWork10-1.csproj", "{F70F482C-D650-4DD6-9E22-D6216B7DD16D}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HomeWork10-2", "HomeWork10-2\HomeWork10-2.csproj", "{A55C5945-5E29-45CA-A581-60EE0C5E735E}"
@@ -31,7 +33,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lessons8", "Lessons8\Lesson
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HomeWork11", "HomeWork11\HomeWork11.csproj", "{E8DF2F80-4A79-4EBA-9417-8FA7D16F9EFD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeWork 11-2", "HomeWork 11-2\HomeWork 11-2.csproj", "{D5AAAE9D-9824-4FF2-93C2-184EF5C0BCD5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HomeWork 11-2", "HomeWork 11-2\HomeWork 11-2.csproj", "{D5AAAE9D-9824-4FF2-93C2-184EF5C0BCD5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -79,6 +81,10 @@ Global
 		{B07FBBAA-670D-4139-8FF2-9EA04C563FF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B07FBBAA-670D-4139-8FF2-9EA04C563FF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B07FBBAA-670D-4139-8FF2-9EA04C563FF7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F05CB9A-746E-49B2-AE6B-0889A0A6DBE9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F05CB9A-746E-49B2-AE6B-0889A0A6DBE9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F05CB9A-746E-49B2-AE6B-0889A0A6DBE9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F05CB9A-746E-49B2-AE6B-0889A0A6DBE9}.Release|Any CPU.Build.0 = Release|Any CPU
 		{F70F482C-D650-4DD6-9E22-D6216B7DD16D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{F70F482C-D650-4DD6-9E22-D6216B7DD16D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F70F482C-D650-4DD6-9E22-D6216B7DD16D}.Release|Any CPU.ActiveCfg = Release|Any CPU
