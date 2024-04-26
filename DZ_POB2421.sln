@@ -43,7 +43,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HomeWork 14-2", "HomeWork 1
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HomeWork 15-2", "HomeWork 15-2\HomeWork 15-2.csproj", "{D86BFF2B-38E1-4DC1-B1DE-F2F6DD3C2462}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Random", "Random\Random.csproj", "{069AB808-6CE1-4521-98A5-3FF76EBA6D39}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Random", "Random\Random.csproj", "{069AB808-6CE1-4521-98A5-3FF76EBA6D39}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StarStop", "StarStop\StarStop.csproj", "{5E2728FF-DF86-40E5-B1FB-524D8FEFDDD6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -135,6 +137,10 @@ Global
 		{069AB808-6CE1-4521-98A5-3FF76EBA6D39}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{069AB808-6CE1-4521-98A5-3FF76EBA6D39}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{069AB808-6CE1-4521-98A5-3FF76EBA6D39}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5E2728FF-DF86-40E5-B1FB-524D8FEFDDD6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E2728FF-DF86-40E5-B1FB-524D8FEFDDD6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E2728FF-DF86-40E5-B1FB-524D8FEFDDD6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E2728FF-DF86-40E5-B1FB-524D8FEFDDD6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
