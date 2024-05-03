@@ -1,59 +1,39 @@
 ﻿Random random=new Random();
-int[] mas1 = new int[10];
-int[] mas2 = new int[10];
-int[] mas3 = new int[10];
-int[] mas4 = new int[10];
-object[] mas5 = new object[10];
-object[] mas6 = new object[10];
-object[] mas7 = new object[10];
+int n = random.Next(10, 20);
+int[] mas1 = new int[n];
+int[] mas2 = new int[n];
+int[] mas3 = new int[n];
+int[] mas4 = new int[n];
+object[] mas5 = new object[n*3];
 for (int i = 0; i < mas1.Length; i++)
 {
-    mas1[i] = random.Next(0,101);
-    mas2[i] = random.Next(0,101);
-    mas3[i] = random.Next(0,101);
-    mas4[i] = random.Next(0,101);
+    mas1[i] = random.Next(0,51);
+    mas2[i] = random.Next(0,51);
+    mas3[i] = random.Next(0,51);
+    mas4[i] = random.Next(0,51);
 }
-for (int i = 0; i < mas5.Length; i++)
+for (int i = 0; i < n; i++)
 {
     mas5[i] = (mas1[i] + mas2[i]) / 2.0;
-    mas6[i] = (mas3[i] + mas4[i]) / 2.0;
+    mas5[i + n] = (mas3[i] + mas4[i]) / 2.0;
 }
-for (int i = 0; i < mas7.Length; i++)
+for (int i = 0; i < n; i++)
 {
-    mas7[i] = (double)mas5[i] * (double)mas6[i];
+    double temp1 = (double)mas5[i];
+    double temp2 = (double)mas5[i + n];
+    mas5[i + n * 2] = temp1 * temp2;
 }
-for (int i = 0; i < mas1.Length; i++)
-{
-    Console.Write($"{mas1[i],8} ");
-}
+Console.WriteLine(n);
+for (int i = 0; i < mas1.Length; i++) Console.Write($"{mas1[i],7} ");
 Console.WriteLine();
-for (int i = 0; i < mas2.Length; i++)
-{
-    Console.Write($"{mas2[i],8} ");
-}
+for (int i = 0; i < mas2.Length; i++) Console.Write($"{mas2[i],7} ");
 Console.WriteLine();
-for (int i = 0; i < mas3.Length; i++)
-{
-    Console.Write($"{mas3[i],8} ");
-}
+for (int i = 0; i < mas3.Length; i++) Console.Write($"{mas3[i],7} ");
 Console.WriteLine();
-for (int i = 0; i < mas4.Length; i++)
-{
-    Console.Write($"{mas4[i],8} ");
-}
+for (int i = 0; i < mas4.Length; i++) Console.Write($"{mas4[i],7} ");
 Console.WriteLine();
-for (int i = 0; i < mas5.Length; i++)
-{
-    Console.Write($"{mas5[i],8} ");
+for (int i = 0; i < n*3; i++)
+{ 
+    Console.Write($"{mas5[i],7:F2} "); 
+    if(i==n-1||i==n*2-1||i==n*3-1) Console.WriteLine();
 }
-Console.WriteLine();
-for (int i = 0; i < mas6.Length; i++)
-{
-    Console.Write($"{mas6[i],8} ");
-}
-Console.WriteLine();
-for (int i = 0; i < mas7.Length; i++)
-{
-    Console.Write($"{mas7[i],8} ");
-}
-Console.WriteLine();
