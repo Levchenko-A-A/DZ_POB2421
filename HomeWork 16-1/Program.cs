@@ -45,42 +45,34 @@ for (int i = 0; i < array.GetLength(0); i++)
 //Заполнить его символами по желанию в разнобой.
 //Вывести на экран понятное слово.
 
-string symbols = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-char[,] array = new char[5, 2];
-Random random = new Random();
-for (int i = 0; i < array.GetLength(0); i++)
-{
-    for (int j = 0; j < array.GetLength(1); j++)
-    {
-        array[i, j] = symbols[random.Next(symbols.Length)];
-    }
-}
+//string symbols = "йцукенгшщзхъфывапролджэячсмитьбюЦУКЕНГШЩЗХФВАПРОЛДЖЭЯЧСМИТБЮ";
+char[,] array1 = { { 'А', 'о' },
+                   { 'Т', 'б' },
+                   { 'р', 'а' },
+                   { 'и', 'к' },
+                   { 'К', 'а' } };
+
 Console.WriteLine("Вывод на экран массива:\n");
-for (int i = 0; i < array.GetLength(0); i++)
+for (int i = 0; i < array1.GetLength(0); i++)
 {
-    for (int j = 0; j < array.GetLength(1); j++)
+    for (int j = 0; j < array1.GetLength(1); j++)
     {
-        Console.Write(array[i, j] + " ");
+        Console.Write(array1[i, j] + " ");
     }
     Console.WriteLine();
 }
 Console.WriteLine();
-Console.WriteLine("Вывод на экран массив в виде строки:\n");
-for (int i = 0; i < array.GetLength(0); i++)
-{
-    for (int j = 0; j < array.GetLength(1); j++)
-    {
-        Console.Write(array[i, j]);
-    }
-}
-int k= 0;
 string str = null;
-for (int i = 0; i < array.GetLength(0); i++)
-{
-    for (int j = 0; j < array.GetLength(1); j++)
-    {
-        str += array[i, j];
-    }
-}
+str += char.ToString(array1[0, 0]);
+str += char.ToString(array1[3, 1]);
+str += char.ToString(array1[2, 0]);
+str += char.ToString(array1[0, 1]);
+str += char.ToString(array1[1, 1]);
+str += char.ToString(array1[4, 1]);
+str += char.ToString(array1[1, 0]);
+str += char.ToString(array1[3, 0]);
+str += char.ToString(array1[4, 0]);
+str += char.ToString(array1[2, 1]);
+
 Console.WriteLine();
 Console.WriteLine($"\nВывод на экран слова: {str}");
