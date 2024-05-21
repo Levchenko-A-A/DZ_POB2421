@@ -78,7 +78,7 @@ do
                 mas[a, b] = 'X';
                 count1++;
             }
-            Thread.Sleep(200);
+            Thread.Sleep(500);
         }
         //else if (mas[a, b] == 'X')
             //Console.WriteLine("Ячейка занята");
@@ -100,7 +100,7 @@ do
         //else if (mas2[a, b] == 'X')
             //Console.WriteLine("Ячейка занята");
     } while (countInsert2 == 0);
-    if (count1==20)
+    if (count1>20)
         break;    
 }
 while (true);
