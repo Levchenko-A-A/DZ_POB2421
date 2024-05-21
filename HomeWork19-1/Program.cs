@@ -64,46 +64,54 @@ for (int k = 4; k > 0; k--)
         mas[1] = random.Next(1, 10);
         mas[2] = random.Next(0, 2);
         temp = h;
-        if (mas[2] == 0)
+        if (mas[2] == 0 || mas[2]==1)
         {
             if (mas[0] == 0 && mas[1] == 0)
             {
                 for (int i = 0; i < k; i++)
                     if (poleOne[1, i + 1] == 'X')
-                        boolDown = false;
+                        mas[0] += 1;
+                        //boolDown = false;
                         //break;
                 if (poleOne[0, k + 1] == 'X')
-                    boolLeft = false;
+                    mas[0] += 1;
+                    //boolLeft = false;
                     //break;
             }
             else if (mas[0] == 0 && mas[1] >= 10 - k)
             {
                 for (int i = 0; i < k; i++)
                     if (poleOne[1, 10 - k + i] == 'X')
-                        boolDown = false;
+                        mas[0] -= 1;
+                        //boolDown = false;
                         //break;
                 if (poleOne[1, 10 - k - 1] == 'X')
-                    boolDown = false;
+                    //boolDown = false;
+                    mas[0] -= 1;
                     //break;
             }
             else if (mas[0] == 10 && mas[1] == 0)
             {
                 for (int i = 0; i < k; i++)
                     if (poleOne[9, i] == 'X')
-                        boolUp = false;
+                        mas[0] -= 1;
+                        //boolUp = false;
                         //break;
                 if (poleOne[10, k + 1] == 'X')
-                    boolRight = false;
-                    //break;
+                    mas[0] -= 1;
+                //boolRight = false;
+                //break;
             }
             else if (mas[0] == 10 && mas[1] >= 10 - k)
             {
                 for (int i = 0; i < k; i++)
                     if (poleOne[9, 10 - k + i] == 'X')
-                        boolUp = false;
+                        mas[0] -= 1;
+                        //boolUp = false;
                         //break;
                 if (poleOne[9, 10 - k - 1] == 'X')
-                    boolLeft = false;
+                    mas[0] -= 1;
+                    //boolLeft = false;
                     //break;
             }
             else if (mas[0]>0 && mas[1]>0 && mas[0]<10-k && mas[1]<10-k)
@@ -111,6 +119,7 @@ for (int k = 4; k > 0; k--)
                 {
                     if (poleOne[mas[0] - 1, mas[1] + i] == 'X' || poleOne[mas[0] + 1, mas[1] + i] == 'X')
                     {
+                        mas[0] += 1;
                         boolUp = false;
                         boolDown = false;
                         //break;
@@ -124,11 +133,11 @@ for (int k = 4; k > 0; k--)
         //{ 
 
         //}
-        if (boolDown == false || boolLeft == false || boolRight == false || boolUp == false) temp++;
-            for (int i = 0; i < mas.Length; i++)
-        {
-            Console.WriteLine(mas[i]);
-        }
+        //if (boolDown == false || boolLeft == false || boolRight == false || boolUp == false) temp++;
+        //    for (int i = 0; i < mas.Length; i++)
+        //{
+        //    Console.WriteLine(mas[i]);
+        //}
         for (int i = 0; i < k; i++)
         {
             if (mas[2] == 0)

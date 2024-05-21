@@ -1,52 +1,128 @@
-﻿using static System.Console;
-//
-//WriteLine("Press any key combination: ");
-//ConsoleKeyInfo key = ReadKey();
-//WriteLine();
-//WriteLine("Key: {0}, Char: {1}, Modifiers: {2}", arg0: key.Key, arg1: key.KeyChar, arg2: key.Modifiers);
+﻿Random random = new Random();
+Random random2 = new Random();
+int countAll = 0;
+char[,] mas=new char[10,10];
+char[,] mas2 = new char[10, 10];
+char[,] poleOne = { { '#', '-', '-', '-', '-', '-', '-', '-', '-', '-' },
+                    { '-', '-', '-', '-', '#', '-', '-', '-', '-', '-' },
+                    { '-', '-', '-', '-', '-', '-', '#', '#', '#', '-' },
+                    { '-', '-', '#', '-', '-', '-', '-', '-', '-', '-' },
+                    { '-', '-', '#', '-', '#', '#', '#', '#', '-', '-' },
+                    { '-', '-', '#', '-', '-', '-', '-', '-', '-', '-' },
+                    { '-', '-', '-', '-', '#', '-', '#', '-', '-', '-' },
+                    { '-', '#', '-', '-', '#', '-', '#', '-', '-', '-' },
+                    { '-', '-', '-', '-', '-', '-', '-', '-', '-', '-' },
+                    { '-', '#', '#', '-', '-', '-', '#', '-', '-', '-' } };
 
-//if (args.Length<3)
-//{
-//    WriteLine("You must specify two colors and cursor size, e.g.");
-//    WriteLine("dotnet run red yellow 50");
-//    return;
-//}
-//ForegroundColor = (ConsoleColor)Enum.Parse(enumType: typeof(ConsoleColor), value: args[0], ignoreCase: true);
-//BackgroundColor = (ConsoleColor)Enum.Parse(enumType: typeof(ConsoleColor), value: args[1], ignoreCase: true);
-//CursorSize = int.Parse(args[2]);
+char[,] poleTwo = { { '-', '#', '-', '-', '-', '-', '-', '-', '-', '-' },
+                    { '-', '-', '-', '-', '-', '-', '-', '#', '-', '-' },
+                    { '-', '-', '#', '#', '#', '-', '-', '-', '-', '-' },
+                    { '-', '-', '-', '-', '-', '-', '-', '-', '-', '-' },
+                    { '-', '-', '-', '-', '#', '-', '-', '-', '-', '-' },
+                    { '-', '#', '-', '-', '#', '-', '-', '#', '-', '-' },
+                    { '-', '#', '-', '#', '-', '-', '-', '#', '-', '-' },
+                    { '-', '#', '-', '#', '-', '#', '-', '#', '-', '-' },
+                    { '-', '-', '-', '-', '-', '-', '-', '#', '-', '-' },
+                    { '-', '-', '#', '-', '#', '#', '-', '-', '-', '-' } };
 
-//int a = int.Parse(ReadLine()!);
-//int b = int.Parse(ReadLine()!);
-//WriteLine(a % b);
+for (int i = 0; i < mas.GetLength(0); i++)
+{
+    for (int j = 0; j < mas.GetLength(1); j++)
+    {
+        mas[i, j]='*';
+        mas2[i,j]='*';
+    }
+}
+int count1 = 0;
+int count2 = 0;
 
-//Определение НОК
-//int n1, n2, LCM = 0;
-//Write("Введите два целых числа: ");
-//string[] arr = ReadLine().Split();
-//n1= int.Parse(arr[0]);
-//n2= int.Parse(arr[1]);
-//LCM = (n1>n2)? n2 : n1;
-//while (true)
-//{ 
-//    if(LCM%n1==0&&LCM%n2==0)
-//    {
-//        WriteLine($"НОК = {LCM}");
-//        break;
-//    }
-//    ++LCM;
-//}
+do
+{   
+    Console.Clear();
+    for (int i = 0; i < mas.GetLength(0); i++)
+    {
+        for (int j = 0; j < mas.GetLength(1); j++)
+        {
+            Console.Write(mas[i, j]+" ");
+        }
+        Console.WriteLine();
+    }
+    Console.WriteLine();
+    Console.WriteLine(count1);
+    Console.WriteLine();
+    for (int i = 0; i < mas2.GetLength(0); i++)
+    {
+        for (int j = 0; j < mas2.GetLength(1); j++)
+        {
+            Console.Write(mas2[i, j] + " ");
+        }
+        Console.WriteLine();
+    }
+    Console.WriteLine();
+    Console.WriteLine(count2);
+    Console.WriteLine();
 
-//Вычисляем обратное число
-//int n, reversNubber = 0, remainder;
-//Write("Введите число: ");
-//n = Convert.ToInt32(ReadLine());
-//while (n!=0)
-//{
-//    remainder = n % 10;
-//    reversNubber=reversNubber*10+remainder;
-//    n /= 10;
-//}
-//WriteLine($"Обратное число = {reversNubber}");
+    int countInsert = 0;
+    do
+    {
+        int a = random.Next(0, 10);
+        int b = random.Next(0, 10);
+        if (mas[a, b] != 'O' || mas[a,b]!='X')
+        {
+            mas[a, b] = 'O';
+            countInsert++;
+            
+            if (poleTwo[a,b]=='#')
+            {
+                countInsert = 0;
+                mas[a, b] = 'X';
+                count1++;
+            }
+            Thread.Sleep(200);
+        }
+        //else if (mas[a, b] == 'X')
+            //Console.WriteLine("Ячейка занята");
+    }
+    while (countInsert == 0);
 
+    int countInsert2 = 0;
+    do
+    {
+        int a2 = random.Next(0, 10);
+        int b2 = random.Next(0, 10);
+        if (mas2[a2, b2] != 'X')
+        {
+            mas2[a2, b2] = 'X';
+            countInsert2++;
+            count2++;
+            Thread.Sleep(200);
+        }
+        //else if (mas2[a, b] == 'X')
+            //Console.WriteLine("Ячейка занята");
+    } while (countInsert2 == 0);
+    if (count1==20)
+        break;    
+}
+while (true);
 
+Console.Clear();
+for (int i = 0; i < mas.GetLength(0); i++)
+{
+    for (int j = 0; j < mas.GetLength(1); j++)
+    {
+        Console.Write(mas[i, j]+" ");
+    }
+    Console.WriteLine();
+}
+Console.WriteLine();
 
+for (int i = 0; i < mas2.GetLength(0); i++)
+{
+    for (int j = 0; j < mas2.GetLength(1); j++)
+    {
+        Console.Write(mas2[i, j] + " ");
+    }
+    Console.WriteLine();
+}
+Console.WriteLine(countAll);
+Console.WriteLine("Игра закончена!!!");
