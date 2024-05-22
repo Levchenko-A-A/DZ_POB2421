@@ -169,9 +169,17 @@ for (int k = 0; k < 4; k++)
 //    Console.WriteLine();
 //}
 //Console.WriteLine();
-Console.WriteLine("Компьютер сформировал свое поле.");
-Console.Write("Ваше поле сформировать автоматически или в ручную? (авт/руч):");
-string formPole = Console.ReadLine()!;
+string formPole = null;
+do
+{
+    Console.WriteLine("Компьютер сформировал свое поле.");
+    Console.Write("Ваше поле сформировать автоматически или в ручную? (авт/руч):");
+    formPole = Console.ReadLine()!;
+    if (formPole == "авт" || formPole == "Авт" || formPole == "авт." || formPole == "Авт." ||
+        formPole == "руч" || formPole == "Руч" || formPole == "руч." || formPole == "Руч.") break;
+    Console.Clear();
+} 
+while (true);
 if (formPole == "авт" || formPole == "Авт" || formPole == "авт." || formPole == "Авт.")
 {
     //заполнение 4-х палубным кораблем
@@ -370,8 +378,17 @@ else if (formPole == "руч" || formPole == "Руч" || formPole == "руч." |
         Console.WriteLine();
     }
 }
-Console.WriteLine("Режим игры? (авт/руч.):");
-string formPlay = Console.ReadLine()!;
+string formPlay = null;
+do
+{
+    Console.WriteLine("Режим игры? (авт/руч.):");
+    formPlay = Console.ReadLine()!;
+    if (formPlay == "авт" || formPlay == "Авт" || formPlay == "авт." || formPlay == "Авт." ||
+        formPlay == "руч" || formPlay == "Руч" || formPlay == "руч." || formPlay == "Руч.")
+        break;
+    Console.Clear();
+}
+while (true);
 if (formPlay == "авт" || formPlay == "Авт" || formPlay == "авт." || formPlay == "Авт.")
 {
     int count1 = 0;
@@ -425,11 +442,11 @@ if (formPlay == "авт" || formPlay == "Авт" || formPlay == "авт." || for
                     mas1[a, b] = 'X';
                     count1++;
                 }
-                Thread.Sleep(200);
+                Thread.Sleep(100);
             }
         }
         while (countInsert == 0);
-
+        if (count1 == 20) break;
         int countInsert2 = 0;
         do
         {
@@ -445,7 +462,7 @@ if (formPlay == "авт" || formPlay == "Авт" || formPlay == "авт." || for
                     mas2[a2, b2] = 'X';
                     count2++;
                 }
-                Thread.Sleep(200);
+                Thread.Sleep(100);
             }
         } while (countInsert2 == 0);
         if (count1 >= 20 || count2 >= 20)
@@ -541,6 +558,7 @@ else if (formPlay == "руч" || formPlay == "Руч" || formPlay == "руч." |
             }
         }
         while (countInsert == 0);
+        if (count1 == 20) break;
         int countInsert2 = 0;
         do
         {
