@@ -169,7 +169,7 @@ for (int k = 0; k < 4; k++)
 //    Console.WriteLine();
 //}
 //Console.WriteLine();
-string formPole = null;
+string formPole = "*";
 do
 {
     Console.WriteLine("Компьютер сформировал свое поле.");
@@ -378,7 +378,7 @@ else if (formPole == "руч" || formPole == "Руч" || formPole == "руч." |
         Console.WriteLine();
     }
 }
-string formPlay = null;
+string formPlay = "*";
 do
 {
     Console.WriteLine("Режим игры? (авт/руч.):");
