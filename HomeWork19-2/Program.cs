@@ -3,7 +3,7 @@ Random random2 = new Random();
 
 char[,] mas1 = new char[10, 10];
 char[,] mas2 = new char[10, 10];
-char[]  mas3 = {'N','0','1','2','3','4','5','6','7','8','9'};
+char[] mas3 = { 'N', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
 
 for (int i = 0; i < mas1.GetLength(0); i++)
 {
@@ -35,7 +35,7 @@ do
     int a = rand1.Next(1, 9);
     int b = rand2.Next(1, 9);
     int c = rand3.Next(0, 1);
-    if (c == 1) 
+    if (c == 1)
     {
         if (b <= 5)
         {
@@ -44,9 +44,9 @@ do
             break;
         }
     }
-    else if (c == 0) 
-    { 
-        if(a<=5)
+    else if (c == 0)
+    {
+        if (a <= 5)
         {
             for (int i = 0; i < 4; i++)
                 poleOne[a + i, b] = '#';
@@ -115,8 +115,8 @@ for (int k = 0; k < 3; k++)
         if (c == 0)
         {
             if (poleOne[a, b] != '#' && poleOne[a, b + 1] != '#' &&
-                poleOne[a - 1, b] != '#' && poleOne[a - 1, b + 1] != '#' && 
-                poleOne[a + 1, b] != '#' && poleOne[a + 1, b + 1] != '#' && 
+                poleOne[a - 1, b] != '#' && poleOne[a - 1, b + 1] != '#' &&
+                poleOne[a + 1, b] != '#' && poleOne[a + 1, b + 1] != '#' &&
                 poleOne[a - 1, b - 1] != '#' && poleOne[a + 1, b - 1] != '#' &&
                 poleOne[a - 1, b + 2] != '#' && poleOne[a + 1, b + 2] != '#' &&
                 poleOne[a, b - 1] != '#' && poleOne[a, b + 2] != '#')
@@ -128,9 +128,9 @@ for (int k = 0; k < 3; k++)
         }
         else if (c == 1)
         {
-            if (poleOne[b, a] != '#' && poleOne[b + 1, a] != '#' && 
-                poleOne[b - 1, a] != '#' && poleOne[b - 1, a + 1] != '#' && 
-                poleOne[b + 1, a] != '#' && poleOne[b + 1, a + 1] != '#' && 
+            if (poleOne[b, a] != '#' && poleOne[b + 1, a] != '#' &&
+                poleOne[b - 1, a] != '#' && poleOne[b - 1, a + 1] != '#' &&
+                poleOne[b + 1, a] != '#' && poleOne[b + 1, a + 1] != '#' &&
                 poleOne[b - 1, a - 1] != '#' && poleOne[b - 1, a + 1] != '#' &&
                 poleOne[b + 2, a - 1] != '#' && poleOne[b + 2, a + 1] != '#' &&
                 poleOne[b - 1, a] != '#' && poleOne[b + 2, a] != '#')
@@ -153,15 +153,15 @@ for (int k = 0; k < 4; k++)
     {
         int a = rand1.Next(1, 9);
         int b = rand2.Next(1, 9);
-        
-        
-            if (poleOne[a, b] != '#' && poleOne[a, b + 1] != '#' && poleOne[a, b - 1] != '#' &&
-                poleOne[a - 1, b] != '#' && poleOne[a - 1, b + 1] != '#' && poleOne[a - 1, b - 1] != '#' &&
-                poleOne[a + 1, b] != '#' && poleOne[a + 1, b + 1] != '#' && poleOne[a + 1, b - 1] != '#')
-            {
-                poleOne[a, b] = '#';
-                break;
-            }
+
+
+        if (poleOne[a, b] != '#' && poleOne[a, b + 1] != '#' && poleOne[a, b - 1] != '#' &&
+            poleOne[a - 1, b] != '#' && poleOne[a - 1, b + 1] != '#' && poleOne[a - 1, b - 1] != '#' &&
+            poleOne[a + 1, b] != '#' && poleOne[a + 1, b + 1] != '#' && poleOne[a + 1, b - 1] != '#')
+        {
+            poleOne[a, b] = '#';
+            break;
+        }
     }
     while (true);
 }
@@ -180,7 +180,7 @@ Console.WriteLine("Компьютер сформировал свое поле."
 Console.Write("Ваше поле сформировать автоматически или в ручную? (авт/руч):");
 string formPole = Console.ReadLine()!;
 
-if (formPole =="авт"||formPole =="Авт"||formPole=="авт."||formPole=="Авт.")
+if (formPole == "авт" || formPole == "Авт" || formPole == "авт." || formPole == "Авт.")
 {
     //заполнение 4-х палубным кораблем
     do
@@ -225,12 +225,12 @@ if (formPole =="авт"||formPole =="Авт"||formPole=="авт."||formPole=="А
             int c = rand3.Next(0, 1);
             if (c == 0)
             {
-                if (poleTwo[a, b] != '#' &&         poleTwo[a, b + 1] != '#' &&     poleTwo[a, b + 2] != '#' &&
-                    poleTwo[a - 1, b] != '#' &&     poleTwo[a - 1, b + 1] != '#' && poleTwo[a - 1, b + 2] != '#' &&
-                    poleTwo[a + 1, b] != '#' &&     poleTwo[a + 1, b + 1] != '#' && poleTwo[a + 1, b + 2] != '#' &&
+                if (poleTwo[a, b] != '#' && poleTwo[a, b + 1] != '#' && poleTwo[a, b + 2] != '#' &&
+                    poleTwo[a - 1, b] != '#' && poleTwo[a - 1, b + 1] != '#' && poleTwo[a - 1, b + 2] != '#' &&
+                    poleTwo[a + 1, b] != '#' && poleTwo[a + 1, b + 1] != '#' && poleTwo[a + 1, b + 2] != '#' &&
                     poleTwo[a - 1, b - 1] != '#' && poleTwo[a + 1, b - 1] != '#' &&
                     poleTwo[a - 1, b + 3] != '#' && poleTwo[a + 1, b + 3] != '#' &&
-                    poleTwo[a, b - 1] != '#' &&     poleTwo[a, b + 3] != '#')
+                    poleTwo[a, b - 1] != '#' && poleTwo[a, b + 3] != '#')
                 {
                     poleTwo[a, b] = '#';
                     poleTwo[a, b + 1] = '#';
@@ -240,12 +240,12 @@ if (formPole =="авт"||formPole =="Авт"||formPole=="авт."||formPole=="А
             }
             else if (c == 1)
             {
-                if (poleTwo[b, a] != '#' &&         poleTwo[b + 1, a] != '#' &&     poleTwo[b + 2, a] != '#' &&
-                    poleTwo[b - 1, a] != '#' &&     poleTwo[b - 1, a + 1] != '#' && poleTwo[b - 1, a + 2] != '#' &&
-                    poleTwo[b + 1, a] != '#' &&     poleTwo[b + 1, a + 1] != '#' && poleTwo[b + 1, a + 2] != '#' &&
+                if (poleTwo[b, a] != '#' && poleTwo[b + 1, a] != '#' && poleTwo[b + 2, a] != '#' &&
+                    poleTwo[b - 1, a] != '#' && poleTwo[b - 1, a + 1] != '#' && poleTwo[b - 1, a + 2] != '#' &&
+                    poleTwo[b + 1, a] != '#' && poleTwo[b + 1, a + 1] != '#' && poleTwo[b + 1, a + 2] != '#' &&
                     poleTwo[b - 1, a - 1] != '#' && poleTwo[b - 1, a + 1] != '#' &&
                     poleTwo[b + 3, a - 1] != '#' && poleTwo[b + 3, a + 1] != '#' &&
-                    poleTwo[b - 1, a] != '#' &&     poleTwo[b + 3, a] != '#')
+                    poleTwo[b - 1, a] != '#' && poleTwo[b + 3, a] != '#')
                 {
                     poleTwo[b, a] = '#';
                     poleTwo[b, a + 1] = '#';
@@ -270,12 +270,12 @@ if (formPole =="авт"||formPole =="Авт"||formPole=="авт."||formPole=="А
             int c = rand3.Next(0, 1);
             if (c == 0)
             {
-                if (poleTwo[a, b] != '#' &&         poleTwo[a, b + 1] != '#' &&
-                    poleTwo[a - 1, b] != '#' &&     poleTwo[a - 1, b + 1] != '#' &&
-                    poleTwo[a + 1, b] != '#' &&     poleTwo[a + 1, b + 1] != '#' &&
+                if (poleTwo[a, b] != '#' && poleTwo[a, b + 1] != '#' &&
+                    poleTwo[a - 1, b] != '#' && poleTwo[a - 1, b + 1] != '#' &&
+                    poleTwo[a + 1, b] != '#' && poleTwo[a + 1, b + 1] != '#' &&
                     poleTwo[a - 1, b - 1] != '#' && poleTwo[a + 1, b - 1] != '#' &&
                     poleTwo[a - 1, b + 2] != '#' && poleTwo[a + 1, b + 2] != '#' &&
-                    poleTwo[a, b - 1] != '#' &&     poleTwo[a, b + 2] != '#')
+                    poleTwo[a, b - 1] != '#' && poleTwo[a, b + 2] != '#')
                 {
                     poleTwo[a, b] = '#';
                     poleTwo[a, b + 1] = '#';
@@ -284,12 +284,12 @@ if (formPole =="авт"||formPole =="Авт"||formPole=="авт."||formPole=="А
             }
             else if (c == 1)
             {
-                if (poleTwo[b, a] != '#' &&         poleTwo[b + 1, a] != '#' &&
-                    poleTwo[b - 1, a] != '#' &&     poleTwo[b - 1, a + 1] != '#' &&
-                    poleTwo[b + 1, a] != '#' &&     poleTwo[b + 1, a + 1] != '#' &&
+                if (poleTwo[b, a] != '#' && poleTwo[b + 1, a] != '#' &&
+                    poleTwo[b - 1, a] != '#' && poleTwo[b - 1, a + 1] != '#' &&
+                    poleTwo[b + 1, a] != '#' && poleTwo[b + 1, a + 1] != '#' &&
                     poleTwo[b - 1, a - 1] != '#' && poleTwo[b - 1, a + 1] != '#' &&
                     poleTwo[b + 2, a - 1] != '#' && poleTwo[b + 2, a + 1] != '#' &&
-                    poleTwo[b - 1, a] != '#' &&     poleTwo[b + 2, a] != '#')
+                    poleTwo[b - 1, a] != '#' && poleTwo[b + 2, a] != '#')
                 {
                     poleTwo[b, a + 1] = '#';
                     break;
@@ -310,10 +310,10 @@ if (formPole =="авт"||formPole =="Авт"||formPole=="авт."||formPole=="А
             int b = rand2.Next(1, 9);
 
 
-            if (poleTwo[a, b] != '#' &&     poleTwo[a, b + 1] != '#' &&     poleTwo[a, b - 1] != '#' &&
+            if (poleTwo[a, b] != '#' && poleTwo[a, b + 1] != '#' && poleTwo[a, b - 1] != '#' &&
                 poleTwo[a - 1, b] != '#' && poleTwo[a - 1, b + 1] != '#' && poleTwo[a - 1, b - 1] != '#' &&
                 poleTwo[a + 1, b] != '#' && poleTwo[a + 1, b + 1] != '#' && poleTwo[a + 1, b - 1] != '#')
-            {   
+            {
                 poleTwo[a, b] = '#';
                 break;
             }
@@ -341,8 +341,8 @@ else if (formPole == "руч" || formPole == "Руч" || formPole == "руч." |
             Console.Clear();
             for (int i = 0; i < poleTwo.GetLength(0); i++)
             {
-                for (int j = 0; j < poleTwo.GetLength(1); j++) 
-                    Console.Write(poleTwo[i, j]+" ");
+                for (int j = 0; j < poleTwo.GetLength(1); j++)
+                    Console.Write(poleTwo[i, j] + " ");
                 Console.WriteLine();
             }
             Console.Write($"Укажите координату {k}-х палубного коробля и направление(1,1,гор):");
@@ -365,7 +365,7 @@ else if (formPole == "руч" || formPole == "Руч" || formPole == "руч." |
                     poleTwo[int.Parse(mas[0]) - 1 + i, int.Parse(mas[1]) - 1] = '#';
                 }
             }
-            
+
         }
         h1--;
     }
@@ -373,8 +373,8 @@ else if (formPole == "руч" || formPole == "Руч" || formPole == "руч." |
     Console.WriteLine("Ваше поле:\n");
     for (int i = 0; i < poleTwo.GetLength(0); i++)
     {
-        for (int j = 0; j < poleTwo.GetLength(1); j++) 
-            Console.Write(poleTwo[i, j]+" ");
+        for (int j = 0; j < poleTwo.GetLength(1); j++)
+            Console.Write(poleTwo[i, j] + " ");
         Console.WriteLine();
     }
 }
@@ -547,18 +547,18 @@ else if (formPlay == "руч" || formPlay == "Руч" || formPlay == "руч." |
             int b2 = int.Parse(Console.ReadLine()!);
             Console.WriteLine("Координата Y:");
             int a2 = int.Parse(Console.ReadLine()!);
-            
-                mas2[a2, b2] = 'o';
-                countInsert2++;
-                if (poleOne[a2, b2] == '#' && mas1[a2, b2] == 'o')
-                {
-                    Console.WriteLine("Вы попали, еще одна попытка.");
-                    countInsert2 = 0;
-                    mas2[a2, b2] = 'X';
-                    count2++;
-                }
-                Thread.Sleep(200);
-            
+
+            mas2[a2, b2] = 'o';
+            countInsert2++;
+            if (poleOne[a2, b2] == '#' && mas1[a2, b2] == 'o')
+            {
+                Console.WriteLine("Вы попали, еще одна попытка.");
+                countInsert2 = 0;
+                mas2[a2, b2] = 'X';
+                count2++;
+            }
+            Thread.Sleep(200);
+
             //else if (mas2[a, b] == 'X')
             //Console.WriteLine("Ячейка занята");
         } while (countInsert2 == 0);
