@@ -22,140 +22,11 @@ for (int i = 0; i < poleOne.GetLength(0); i++)
         poleTwo[i, j] = '-';
     }
 }
-//заполнение 4-х палубным кораблем
-do
-{
-    Random rand1 = new Random();
-    Random rand2 = new Random();
-    Random rand3 = new Random();
-    int a = rand1.Next(1, 9);
-    int b = rand2.Next(1, 9);
-    int c = rand3.Next(0, 1);
-    if (c == 1)
-    {
-        if (b <= 5)
-        {
-            for (int i = 0; i < 4; i++)
-                poleOne[a, b + i] = '#';
-            break;
-        }
-    }
-    else if (c == 0)
-    {
-        if (a <= 5)
-        {
-            for (int i = 0; i < 4; i++)
-                poleOne[a + i, b] = '#';
-            break;
-        }
-    }
-}
-while (true);
-//заполнение 3-х палубными кораблями
-for (int k = 0; k < 2; k++)
-{
-    Random rand1 = new Random();
-    Random rand2 = new Random();
-    Random rand3 = new Random();
-    do
-    {
-        int a = rand1.Next(1, 9);
-        int b = rand2.Next(1, 6);
-        int c = rand3.Next(0, 1);
-        if (c == 0)
-        {
-            if (poleOne[a, b] != '#' && poleOne[a, b + 1] != '#' && poleOne[a, b + 2] != '#' &&
-                poleOne[a - 1, b] != '#' && poleOne[a - 1, b + 1] != '#' && poleOne[a - 1, b + 2] != '#' &&
-                poleOne[a + 1, b] != '#' && poleOne[a + 1, b + 1] != '#' && poleOne[a + 1, b + 2] != '#' &&
-                poleOne[a - 1, b - 1] != '#' && poleOne[a + 1, b - 1] != '#' &&
-                poleOne[a - 1, b + 3] != '#' && poleOne[a + 1, b + 3] != '#' &&
-                poleOne[a, b - 1] != '#' && poleOne[a, b + 3] != '#')
-            {
-                poleOne[a, b] = '#';
-                poleOne[a, b + 1] = '#';
-                poleOne[a, b + 2] = '#';
-                break;
-            }
-        }
-        else if (c == 1)
-        {
-            if (poleOne[b, a] != '#' && poleOne[b + 1, a] != '#' && poleOne[b + 2, a] != '#' &&
-                poleOne[b - 1, a] != '#' && poleOne[b - 1, a + 1] != '#' && poleOne[b - 1, a + 2] != '#' &&
-                poleOne[b + 1, a] != '#' && poleOne[b + 1, a + 1] != '#' && poleOne[b + 1, a + 2] != '#' &&
-                poleOne[b - 1, a - 1] != '#' && poleOne[b - 1, a + 1] != '#' &&
-                poleOne[b + 3, a - 1] != '#' && poleOne[b + 3, a + 1] != '#' &&
-                poleOne[b - 1, a] != '#' && poleOne[b + 3, a] != '#')
-            {
-                poleOne[b, a] = '#';
-                poleOne[b, a + 1] = '#';
-                poleOne[b, a + 2] = '#';
-                break;
-            }
-        }
-    }
-    while (true);
-}
-//Заполнение 2-х палубными кораблями
-for (int k = 0; k < 3; k++)
-{
-    Random rand1 = new Random();
-    Random rand2 = new Random();
-    Random rand3 = new Random();
-    do
-    {
-        int a = rand1.Next(1, 9);
-        int b = rand2.Next(1, 6);
-        int c = rand3.Next(0, 1);
-        if (c == 0)
-        {
-            if (poleOne[a, b] != '#' && poleOne[a, b + 1] != '#' &&
-                poleOne[a - 1, b] != '#' && poleOne[a - 1, b + 1] != '#' &&
-                poleOne[a + 1, b] != '#' && poleOne[a + 1, b + 1] != '#' &&
-                poleOne[a - 1, b - 1] != '#' && poleOne[a + 1, b - 1] != '#' &&
-                poleOne[a - 1, b + 2] != '#' && poleOne[a + 1, b + 2] != '#' &&
-                poleOne[a, b - 1] != '#' && poleOne[a, b + 2] != '#')
-            {
-                poleOne[a, b] = '#';
-                poleOne[a, b + 1] = '#';
-                break;
-            }
-        }
-        else if (c == 1)
-        {
-            if (poleOne[b, a] != '#' && poleOne[b + 1, a] != '#' &&
-                poleOne[b - 1, a] != '#' && poleOne[b - 1, a + 1] != '#' &&
-                poleOne[b + 1, a] != '#' && poleOne[b + 1, a + 1] != '#' &&
-                poleOne[b - 1, a - 1] != '#' && poleOne[b - 1, a + 1] != '#' &&
-                poleOne[b + 2, a - 1] != '#' && poleOne[b + 2, a + 1] != '#' &&
-                poleOne[b - 1, a] != '#' && poleOne[b + 2, a] != '#')
-            {
-                poleOne[b, a] = '#';
-                poleOne[b, a + 1] = '#';
-                break;
-            }
-        }
-    }
-    while (true);
-}
-//Заполнение 1-о палубными кораблями
-for (int k = 0; k < 4; k++)
-{
-    Random rand1 = new Random();
-    Random rand2 = new Random();
-    do
-    {
-        int a = rand1.Next(1, 9);
-        int b = rand2.Next(1, 9);
-        if (poleOne[a, b] != '#' && poleOne[a, b + 1] != '#' && poleOne[a, b - 1] != '#' &&
-            poleOne[a - 1, b] != '#' && poleOne[a - 1, b + 1] != '#' && poleOne[a - 1, b - 1] != '#' &&
-            poleOne[a + 1, b] != '#' && poleOne[a + 1, b + 1] != '#' && poleOne[a + 1, b - 1] != '#')
-        {
-            poleOne[a, b] = '#';
-            break;
-        }
-    }
-    while (true);
-}
+FillTheShip4(poleOne); //заполнение 4-х палубным кораблем
+FillTheShip3(poleOne); //заполнение 3-х палубными кораблями
+FillTheShip2(poleOne); //Заполнение 2-х палубными кораблями
+FillTheShip1(poleOne); //Заполнение 1-о палубными кораблями
+
 string formPole = "*";
 do
 {
@@ -169,139 +40,10 @@ do
 while (true);
 if (formPole == "авт" || formPole == "Авт" || formPole == "авт." || formPole == "Авт.")
 {
-    //заполнение 4-х палубным кораблем
-    do
-    {
-        Random rand1 = new Random();
-        Random rand2 = new Random();
-        Random rand3 = new Random();
-        int a = rand1.Next(1, 9);
-        int b = rand2.Next(1, 9);
-        int c = rand3.Next(0, 1);
-        if (c == 1)
-        {
-            if (b <= 5)
-            {
-                for (int i = 0; i < 4; i++)
-                    poleTwo[a, b + i] = '#';
-                break;
-            }
-        }
-        else if (c == 0)
-        {
-            if (a <= 5)
-            {
-                for (int i = 0; i < 4; i++)
-                    poleTwo[a + i, b] = '#';
-                break;
-            }
-        }
-    }
-    while (true);
-    //заполнение 3-х палубными кораблями
-    for (int k = 0; k < 2; k++)
-    {
-        Random rand1 = new Random();
-        Random rand2 = new Random();
-        Random rand3 = new Random();
-        do
-        {
-            int a = rand1.Next(1, 9);
-            int b = rand2.Next(1, 6);
-            int c = rand3.Next(0, 1);
-            if (c == 0)
-            {
-                if (poleTwo[a, b] != '#' && poleTwo[a, b + 1] != '#' && poleTwo[a, b + 2] != '#' &&
-                    poleTwo[a - 1, b] != '#' && poleTwo[a - 1, b + 1] != '#' && poleTwo[a - 1, b + 2] != '#' &&
-                    poleTwo[a + 1, b] != '#' && poleTwo[a + 1, b + 1] != '#' && poleTwo[a + 1, b + 2] != '#' &&
-                    poleTwo[a - 1, b - 1] != '#' && poleTwo[a + 1, b - 1] != '#' &&
-                    poleTwo[a - 1, b + 3] != '#' && poleTwo[a + 1, b + 3] != '#' &&
-                    poleTwo[a, b - 1] != '#' && poleTwo[a, b + 3] != '#')
-                {
-                    poleTwo[a, b] = '#';
-                    poleTwo[a, b + 1] = '#';
-                    poleTwo[a, b + 2] = '#';
-                    break;
-                }
-            }
-            else if (c == 1)
-            {
-                if (poleTwo[b, a] != '#' && poleTwo[b + 1, a] != '#' && poleTwo[b + 2, a] != '#' &&
-                    poleTwo[b - 1, a] != '#' && poleTwo[b - 1, a + 1] != '#' && poleTwo[b - 1, a + 2] != '#' &&
-                    poleTwo[b + 1, a] != '#' && poleTwo[b + 1, a + 1] != '#' && poleTwo[b + 1, a + 2] != '#' &&
-                    poleTwo[b - 1, a - 1] != '#' && poleTwo[b - 1, a + 1] != '#' &&
-                    poleTwo[b + 3, a - 1] != '#' && poleTwo[b + 3, a + 1] != '#' &&
-                    poleTwo[b - 1, a] != '#' && poleTwo[b + 3, a] != '#')
-                {
-                    poleTwo[b, a] = '#';
-                    poleTwo[b, a + 1] = '#';
-                    poleTwo[b, a + 2] = '#';
-                    break;
-                }
-            }
-        }
-        while (true);
-    }
-    //Заполнение 2-х палубными кораблями
-    for (int k = 0; k < 3; k++)
-    {
-        Random rand1 = new Random();
-        Random rand2 = new Random();
-        Random rand3 = new Random();
-        do
-        {
-            int a = rand1.Next(1, 9);
-            int b = rand2.Next(1, 6);
-            int c = rand3.Next(0, 1);
-            if (c == 0)
-            {
-                if (poleTwo[a, b] != '#' && poleTwo[a, b + 1] != '#' &&
-                    poleTwo[a - 1, b] != '#' && poleTwo[a - 1, b + 1] != '#' &&
-                    poleTwo[a + 1, b] != '#' && poleTwo[a + 1, b + 1] != '#' &&
-                    poleTwo[a - 1, b - 1] != '#' && poleTwo[a + 1, b - 1] != '#' &&
-                    poleTwo[a - 1, b + 2] != '#' && poleTwo[a + 1, b + 2] != '#' &&
-                    poleTwo[a, b - 1] != '#' && poleTwo[a, b + 2] != '#')
-                {
-                    poleTwo[a, b] = '#';
-                    poleTwo[a, b + 1] = '#';
-                    break;
-                }
-            }
-            else if (c == 1)
-            {
-                if (poleTwo[b, a] != '#' && poleTwo[b + 1, a] != '#' &&
-                    poleTwo[b - 1, a] != '#' && poleTwo[b - 1, a + 1] != '#' &&
-                    poleTwo[b + 1, a] != '#' && poleTwo[b + 1, a + 1] != '#' &&
-                    poleTwo[b - 1, a - 1] != '#' && poleTwo[b - 1, a + 1] != '#' &&
-                    poleTwo[b + 2, a - 1] != '#' && poleTwo[b + 2, a + 1] != '#' &&
-                    poleTwo[b - 1, a] != '#' && poleTwo[b + 2, a] != '#')
-                {
-                    poleTwo[b, a + 1] = '#';
-                    break;
-                }
-            }
-        }
-        while (true);
-    }
-    //Заполнение 1-о палубными кораблями
-    for (int k = 0; k < 4; k++)
-    {
-        Random rand1 = new Random();
-        Random rand2 = new Random();
-        do
-        {
-            int a = rand1.Next(1, 9);
-            int b = rand2.Next(1, 9);
-            if (poleTwo[a, b] != '#' && poleTwo[a, b + 1] != '#' && poleTwo[a, b - 1] != '#' &&
-                poleTwo[a - 1, b] != '#' && poleTwo[a - 1, b + 1] != '#' && poleTwo[a - 1, b - 1] != '#' &&
-                poleTwo[a + 1, b] != '#' && poleTwo[a + 1, b + 1] != '#' && poleTwo[a + 1, b - 1] != '#')
-            {
-                poleTwo[a, b] = '#';
-                break;
-            }
-        }
-        while (true);
-    }
+    FillTheShip4(poleTwo); //заполнение 4-х палубным кораблем
+    FillTheShip3(poleTwo); //заполнение 3-х палубными кораблями
+    FillTheShip2(poleTwo); //Заполнение 2-х палубными кораблями
+    FillTheShip1(poleTwo); //Заполнение 1-о палубными кораблями
     Console.WriteLine("Ваше поле:");
     PrintPole(poleTwo);
 }
@@ -314,18 +56,18 @@ else if (formPole == "руч" || formPole == "Руч" || formPole == "руч." |
         {
             Console.Clear();
             PrintPole(poleTwo);
-            Console.Write($"Укажите координату {k}-х палубного коробля и направление(1,1,гор):");
+            Console.Write($"Укажите координату {k}-х палубного коробля и направление(A,1,гор):");
             string temp = Console.ReadLine()!;
             string[] mas = temp.Split(',');
             for (int i = 0; i < k; i++)
             {
                 if (mas[2] == "гор")
                 {
-                    poleTwo[int.Parse(mas[0]) - 1, int.Parse(mas[1]) + i - 1] = '#';
+                    poleTwo[int.Parse(mas[1])-1, PerevodX(mas[0]) + i] = '#';
                 }
                 else if (mas[2] == "вер")
                 {
-                    poleTwo[int.Parse(mas[0]) - 1 + i, int.Parse(mas[1]) - 1] = '#';
+                    poleTwo[int.Parse(mas[1]) - 1 + i, PerevodX(mas[0])] = '#';
                 }
             }
         }
@@ -404,7 +146,7 @@ if (formPlay == "авт" || formPlay == "Авт" || formPlay == "авт." || for
     PrintPole(mas1);
     PrintPole(mas2);
     if (count1 > count2) Console.WriteLine("Победил Компьютер.");
-    else if (count1 > count2) Console.WriteLine("Победил Игрок.");
+    else if (count1 < count2) Console.WriteLine("Победил Игрок.");
     Console.WriteLine("Игра закончена!!!");
     Console.WriteLine(count1);
     Console.WriteLine(count2);
@@ -444,17 +186,16 @@ else if (formPlay == "руч" || formPlay == "Руч" || formPlay == "руч." |
         int countInsert2 = 0;
         do
         {
-            Console.WriteLine("Координата Х:");
-            int b2 = int.Parse(Console.ReadLine()!);
-            Console.WriteLine("Координата Y:");
-            int a2 = int.Parse(Console.ReadLine()!);
-            mas2[a2, b2] = 'o';
+            Console.Write($"Укажите координату (A,1):");
+            string temp = Console.ReadLine()!;
+            string[] mas = temp.Split(',');
+            mas2[int.Parse(mas[1]) - 1, PerevodX(mas[0])] = 'o';
             countInsert2++;
-            if (poleOne[a2, b2] == '#' && mas1[a2, b2] == 'o')
+            if (poleOne[int.Parse(mas[1]) - 1, PerevodX(mas[0])] == '#' && mas1[int.Parse(mas[1]) - 1, PerevodX(mas[0])] == 'o')
             {
                 Console.WriteLine("Вы попали, еще одна попытка.");
                 countInsert2 = 0;
-                mas2[a2, b2] = 'X';
+                mas2[int.Parse(mas[1]) - 1, PerevodX(mas[0])] = 'X';
                 count2++;
             }
             Thread.Sleep(200);
@@ -492,4 +233,162 @@ void PrintPole (char[,] temp)
         Console.WriteLine();
     }
     Console.WriteLine();
+}
+
+void FillTheShip4(char[,] temp)
+{
+    do
+    {
+        Random rand1 = new Random();
+        Random rand2 = new Random();
+        Random rand3 = new Random();
+        int a = rand1.Next(1, 9);
+        int b = rand2.Next(1, 9);
+        int c = rand3.Next(0, 1);
+        if (c == 1)
+        {
+            if (b <= 5)
+            {
+                for (int i = 0; i < 4; i++)
+                    temp[a, b + i] = '#';
+                break;
+            }
+        }
+        else if (c == 0)
+        {
+            if (a <= 5)
+            {
+                for (int i = 0; i < 4; i++)
+                    temp[a + i, b] = '#';
+                break;
+            }
+        }
+    }
+    while (true);
+}
+void FillTheShip3(char[,] temp)
+{
+    for (int k = 0; k < 2; k++)
+    {
+        Random rand1 = new Random();
+        Random rand2 = new Random();
+        Random rand3 = new Random();
+        do
+        {
+            int a = rand1.Next(1, 9);
+            int b = rand2.Next(1, 6);
+            int c = rand3.Next(0, 1);
+            if (c == 0)
+            {
+                if (temp[a, b] != '#' &&         temp[a, b + 1] != '#' &&     temp[a, b + 2] != '#' &&
+                    temp[a - 1, b] != '#' &&     temp[a - 1, b + 1] != '#' && temp[a - 1, b + 2] != '#' &&
+                    temp[a + 1, b] != '#' &&     temp[a + 1, b + 1] != '#' && temp[a + 1, b + 2] != '#' &&
+                    temp[a - 1, b - 1] != '#' && temp[a + 1, b - 1] != '#' &&
+                    temp[a - 1, b + 3] != '#' && temp[a + 1, b + 3] != '#' &&
+                    temp[a, b - 1] != '#' &&     temp[a, b + 3] != '#')
+                {
+                    temp[a, b] = '#';
+                    temp[a, b + 1] = '#';
+                    temp[a, b + 2] = '#';
+                    break;
+                }
+            }
+            else if (c == 1)
+            {
+                if (temp[b, a] != '#' &&         temp[b + 1, a] != '#' &&     temp[b + 2, a] != '#' &&
+                    temp[b - 1, a] != '#' &&     temp[b - 1, a + 1] != '#' && temp[b - 1, a + 2] != '#' &&
+                    temp[b + 1, a] != '#' &&     temp[b + 1, a + 1] != '#' && temp[b + 1, a + 2] != '#' &&
+                    temp[b - 1, a - 1] != '#' && temp[b - 1, a + 1] != '#' &&
+                    temp[b + 3, a - 1] != '#' && temp[b + 3, a + 1] != '#' &&
+                    temp[b - 1, a] != '#' &&     temp[b + 3, a] != '#')
+                {
+                    temp[b, a] = '#';
+                    temp[b, a + 1] = '#';
+                    temp[b, a + 2] = '#';
+                    break;
+                }
+            }
+        }
+        while (true);
+    }
+}
+void FillTheShip2(char[,] temp)
+{
+    for (int k = 0; k < 3; k++)
+    {
+        Random rand1 = new Random();
+        Random rand2 = new Random();
+        Random rand3 = new Random();
+        do
+        {
+            int a = rand1.Next(1, 9);
+            int b = rand2.Next(1, 6);
+            int c = rand3.Next(0, 1);
+            if (c == 0)
+            {
+                if (temp[a, b] != '#' &&         temp[a, b + 1] != '#' &&
+                    temp[a - 1, b] != '#' &&     temp[a - 1, b + 1] != '#' &&
+                    temp[a + 1, b] != '#' &&     temp[a + 1, b + 1] != '#' &&
+                    temp[a - 1, b - 1] != '#' && temp[a + 1, b - 1] != '#' &&
+                    temp[a - 1, b + 2] != '#' && temp[a + 1, b + 2] != '#' &&
+                    temp[a, b - 1] != '#' &&     temp[a, b + 2] != '#')
+                {
+                    temp[a, b] = '#';
+                    temp[a, b + 1] = '#';
+                    break;
+                }
+            }
+            else if (c == 1)
+            {
+                if (temp[b, a] != '#' &&         temp[b + 1, a] != '#' &&
+                    temp[b - 1, a] != '#' &&     temp[b - 1, a + 1] != '#' &&
+                    temp[b + 1, a] != '#' &&     temp[b + 1, a + 1] != '#' &&
+                    temp[b - 1, a - 1] != '#' && temp[b - 1, a + 1] != '#' &&
+                    temp[b + 2, a - 1] != '#' && temp[b + 2, a + 1] != '#' &&
+                    temp[b - 1, a] != '#' &&     temp[b + 2, a] != '#')
+                {
+                    temp[b, a] = '#';
+                    temp[b, a + 1] = '#';
+                    break;
+                }
+            }
+        }
+        while (true);
+    }
+}
+void FillTheShip1(char[,] temp)
+{
+    for (int k = 0; k < 4; k++)
+    {
+        Random rand1 = new Random();
+        Random rand2 = new Random();
+        do
+        {
+            int a = rand1.Next(1, 9);
+            int b = rand2.Next(1, 9);
+            if (temp[a, b] != '#' &&     temp[a, b + 1] != '#' &&     temp[a, b - 1] != '#' &&
+                temp[a - 1, b] != '#' && temp[a - 1, b + 1] != '#' && temp[a - 1, b - 1] != '#' &&
+                temp[a + 1, b] != '#' && temp[a + 1, b + 1] != '#' && temp[a + 1, b - 1] != '#')
+            {
+                temp[a, b] = '#';
+                break;
+            }
+        }
+        while (true);
+    }
+}
+int PerevodX(string temp)
+{
+    int result = 0;
+    if (temp == "A")        result=0;
+    else if (temp == "Б")   result=1;
+    else if (temp == "В")   result=2;
+    else if (temp == "Г")   result=3;
+    else if (temp == "Д")   result=4;
+    else if (temp == "Е")   result=5;
+    else if (temp == "Ж")   result=6;
+    else if (temp == "З")   result=7;
+    else if (temp == "И")   result=8;
+    else if (temp == "К")   result=9;
+    return result;
 }
