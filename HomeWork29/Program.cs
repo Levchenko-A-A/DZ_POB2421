@@ -1,9 +1,14 @@
 ﻿foreach(Month items in Enum.GetValues(typeof(Month)))
 {
-    Console.WriteLine($"{Enum.Format(typeof(Month),items,"G"),10} {Enum.Format(typeof(Month), items,"D"),4}");
+    Console.WriteLine($"{(items)} {items,-10} {Enum.Format(typeof(Month), items,"D"),4}");
 }
 
-
+Console.Write("Введите порядковый номер месяца:");
+int number;
+int.TryParse(Console.ReadLine(), out number);
+if (!Enum.IsDefined(typeof(Month), number))
+    Console.WriteLine($"Значения {number} нет в перечислении");
+else Console.WriteLine($"Введенный месяц: {Enum.GetName(typeof(Month),number)}");
 
 enum Month : int
 {
