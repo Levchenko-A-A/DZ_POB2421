@@ -2,11 +2,8 @@
 using Microsoft.VisualBasic;
 using System.Diagnostics.Contracts;
 using System.Reflection.Metadata;
-//Staff staffs = new Staff();
-
 List<Staff> Assistans = new List<Staff>();
 bool flag = true;
-
 do
 {
     Console.Clear();
@@ -40,57 +37,96 @@ do
             break;
         case 2:
             {
-                Console.Write("Введите Фамилию:");
-                string surname = Console.ReadLine()!;
-                Staff staff = Assistans.Find(x => x.Surname == surname);
-                Assistans.Remove(staff);
+                Console.Clear();
+                if (Assistans.Count() != 0)
+                {
+                    Console.Write("Введите Фамилию:");
+                    string surname = Console.ReadLine()!;
+                    Staff staff = Assistans.Find(x => x.Surname == surname);
+                    Assistans.Remove(staff);
+                }
+                else
+                {
+                    Console.WriteLine("База не содержит ни одной записи.\nНажмите любую клавишу.");
+                    Console.ReadKey();
+                }
             }
             break;
         case 3:
             {
-                Console.WriteLine("1 - поиск по имени\n" +
-                                  "2 - поиск по должности");
-                Console.Write("Введите номер:");
-                int m;
-                int.TryParse(Console.ReadLine(), out m);
-                switch (m)
+                Console.Clear();
+                if (Assistans.Count() != 0)
                 {
-                    case 1:
-                        {
-                            Console.Write("Введите имя:");
-                            string name = Console.ReadLine()!;
-                            Staff staff = Assistans.Find(x => x.Name == name);
-                            Console.WriteLine(staff.Name + " " + staff.Surname+" "+staff.Post);
-                            Console.ReadKey();
-                        }
-                        break;
-                    case 2:
-                        {
-                            Console.Write("Введите телефон:");
-                            string surnamee = Console.ReadLine()!;
-                            Staff staff = Assistans.Find(x => x.Surname == surnamee);
-                            Console.WriteLine(staff.Name + " " + staff.Surname + " " + staff.Post);
-                            Console.ReadKey();
-                        }
-                        break;
+                    Console.WriteLine("1 - поиск по имени\n" +
+                                  "2 - поиск по должности");
+                    Console.Write("Введите номер:");
+                    int m;
+                    int.TryParse(Console.ReadLine(), out m);
+                    switch (m)
+                    {
+                        case 1:
+                            {
+                                Console.Write("Введите имя:");
+                                string name = Console.ReadLine()!;
+                                Staff staff = Assistans.Find(x => x.Name == name);
+                                Console.WriteLine(staff.Name + " " + staff.Surname + " " + staff.Post);
+                                Console.ReadKey();
+                            }
+                            break;
+                        case 2:
+                            {
+                                Console.Write("Введите телефон:");
+                                string surnamee = Console.ReadLine()!;
+                                Staff staff = Assistans.Find(x => x.Surname == surnamee);
+                                Console.WriteLine(staff.Name + " " + staff.Surname + " " + staff.Post);
+                                Console.ReadKey();
+                            }
+                            break;
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("База не содержит ни одной записи.\nНажмите любую клавишу.");
+                    Console.ReadKey();
                 }
             }
             break;
         case 4:
             {
                 Console.Clear();
-                Console.WriteLine("Фамилия, Имя, Должность");
-                foreach (Staff staff in Assistans)
+                if (Assistans.Count() != 0)
                 {
-                    Console.WriteLine(staff.Name + " " + staff.Surname + " " + staff.Post);
+                    Console.Clear();
+                    Console.WriteLine("Имя          Фамилия         Должность\n");
+                    foreach (Staff staff in Assistans)
+                    {
+                        Console.WriteLine($"{staff.Name,-10} { staff.Surname,-15} { staff.Post,-15}");
+                    }
+                    Console.WriteLine();
+                    Console.WriteLine("Нажмите любую клавишу.");
+                    Console.ReadKey();
                 }
-                Console.ReadKey();
+                else
+                {
+                    Console.WriteLine("База не содержит ни одной записи.\nНажмите любую клавишу.");
+                    Console.ReadKey();
+                }
             }
             break;
         case 5:
             {
-                Console.WriteLine(Assistans.Count());
-                Console.ReadKey();
+                Console.Clear();
+                if (Assistans.Count() != 0)
+                {
+                    Console.WriteLine(Assistans.Count());
+                    Console.WriteLine("Нажмите любую клавишу.");
+                    Console.ReadKey();
+                }
+                else
+                {
+                    Console.WriteLine("База не содержит ни одной записи.\nНажмите любую клавишу.");
+                    Console.ReadKey();
+                }
             }
             break;
         case 6:
