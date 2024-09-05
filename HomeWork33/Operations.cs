@@ -12,26 +12,33 @@ namespace HomeWork33
     internal class Operations
     {
         public List<string>? ListString { get; set; } = new();
+        public int count;
 
         public Operations()
         {
             for (int i = 0; i < 3; i++)
             {
-                Console.Write("Введите " + (i + 1) + " строку:");
+                count++;
+                Console.Write("Введите " + (count) + " строку:");
                 ListString.Add(Console.ReadLine()!);
             }
         }
 
-        public int FindIndex(string name)
+        public void AddString()
         {
-            if (ListString.BinarySearch(name) >= 0)
-                return ListString.BinarySearch(name);
-            else return -1;
+            for (int i = 0; i < 3; i++)
+            {
+                count++;
+                Console.Write("Введите " + (count) + " строку:");
+                ListString.Add(Console.ReadLine()!);
+            }
         }
 
         public void FindList(string name)
         {
-            Console.WriteLine(ListString.BinarySearch(name)+" "+ListString.Find(x => x == name));
+            if(ListString!.IndexOf(name)>=0)
+                Console.WriteLine(ListString.IndexOf(name)+" "+ListString.Find(x => x == name));
+            else Console.WriteLine("Такого значения не найдено.");
         }
 
         public void RemoveAtIndex()
@@ -50,20 +57,28 @@ namespace HomeWork33
         public void SortList()
         {
             ListString.Sort();
-            //if (ListString.Count != 0)
-            //{
-            //    for (int i = 1; i < ListString.Count; i++)
-            //    {
-            //        List<string> key = ListString[i];
-            //        int j = i - 1;
-            //        while (j >= 0 && ListString[i].CompareTo(key))
-            //        {
-            //            ListString[j + 1] = ListString[j];
-            //            j--;
-            //        }
-            //        ListString[j + 1] = key;
-            //    }
-            //}
+        }
+
+        public void FindAllValues(string name)
+        {
+            int[] mas = new int[ListString!.Count];
+            int temp=1;
+            if (ListString!.IndexOf(name) >= 0)
+            {
+                Console.Write("Cписок индексов вхождений:");
+                for (int i = 0; i < ListString.Count; i++)
+                {
+                    if (ListString[i] == name)
+                    {
+                        mas[temp] = i;
+                        
+                        Console.Write(temp+" ");
+                    }
+                    temp++;
+                }
+            }
+            else Console.WriteLine("Введенное содержимое не найдено.");
+
         }
 
         public void Print()
