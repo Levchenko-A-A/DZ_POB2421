@@ -17,6 +17,45 @@ namespace HW_OOP_2
     {
         public List<Book> Books { get; set; } = new();
         public void Add(Book book) => Books.Add(book);
+        public void SubName(string name)
+        {
+            Console.WriteLine(Books.Count);
+            for (int i = 0; i < Books.Count; i++)
+            {
+                Book tmp = Books[i];
+                if (tmp.Name == name)
+                {
+                    Books.RemoveAt(i);
+                    i = 0;
+                }
+            }
+        }
+        public void SubAutor(string autor)
+        {
+            Console.WriteLine(Books.Count);
+            for (int i = 0; i < Books.Count; i++)
+            {
+                Book tmp = Books[i];
+                if (tmp.Autor == autor)
+                {
+                    Books.RemoveAt(i);
+                    i = 0;
+                }
+            }
+        }
+        public void SubYear(int year)
+        {
+            Console.WriteLine(Books.Count);
+            for (int i = 0; i < Books.Count; i++)
+            {
+                Book tmp = Books[i];
+                if (tmp.Year == year)
+                {
+                    Books.RemoveAt(i);
+                    i = 0;
+                }
+            }
+        }
         public Library(List<Book> books)
         {
             Books = books;
@@ -62,9 +101,23 @@ namespace HW_OOP_2
             {
                 Book key = Books[i];
                 int j = i - 1;
-                while(j>=0 && Books[i].Name.CompareTo(key.Name)>0)
+                while(j >=0 && Books[j].Name.CompareTo(key.Name)>0)
                 {
                     Books[j+1] = Books[j];
+                    j--;
+                }
+                Books[j + 1] = key;
+            }
+        }
+        public void sortAutor()
+        {
+            for (int i = 1; i < Books.Count; i++)
+            {
+                Book key = Books[i];
+                int j = i - 1;
+                while (j >= 0 && Books[j].Autor.CompareTo(key.Autor) > 0)
+                {
+                    Books[j + 1] = Books[j];
                     j--;
                 }
                 Books[j + 1] = key;

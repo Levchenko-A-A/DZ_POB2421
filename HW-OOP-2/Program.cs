@@ -28,6 +28,10 @@ for (int i = 0; i < 5; i++)
 Console.Clear();
 library.sortName();
 library.Print();
+Console.Write("ведите название книги:");
+string nameBook = Console.ReadLine()!;
+library.SubName(nameBook);
+library.Print();
 //library.Print();
 //Console.Write("Для вывода списка по названию, ведите название книги:");
 //string nameBook = Console.ReadLine()!;
