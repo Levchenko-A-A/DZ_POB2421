@@ -74,7 +74,7 @@ namespace HomeWork33
         public void FindAllValues(string name)
         {
             int[] mas = new int[ListString!.Count];
-            int temp=1;
+            int temp=0;
             if (ListString!.IndexOf(name) >= 0)
             {
                 Console.Write("Cписок индексов вхождений:");
@@ -84,12 +84,14 @@ namespace HomeWork33
                     {
                         mas[temp] = i;
                         
-                        Console.Write(temp+" ");
+                        Console.Write(temp+1+" ");
                     }
                     temp++;
                 }
             }
             else Console.WriteLine("Введенное содержимое не найдено.");
+            Console.WriteLine("Нажмите любую клавишу.");
+            Console.ReadKey();
 
         }
 

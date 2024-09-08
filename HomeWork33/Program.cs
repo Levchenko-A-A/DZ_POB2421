@@ -18,6 +18,7 @@ do
                       "9. Загрузить список в файл\n" +
                       "10. Выход.");
     int n = 0;
+    Console.Write("Ваш выбор:");
     int.TryParse(Console.ReadLine(), out n);
     switch(n)
     {
@@ -49,12 +50,19 @@ do
             break;
         case 5:
             {
-
+                Console.Clear();
+                operations.Print();
+                operations.SortList();
+                operations.Print();
             }
             break;
         case 6:
             {
-
+                Console.Clear();
+                operations.Print();
+                Console.Write("Введите значение записи для поиска:");
+                string name = Console.ReadLine()!;
+                operations.FindAllValues(name);
             }
             break;
         case 7:
@@ -81,19 +89,3 @@ do
     Console.Clear();
 }
 while (flag);
-
-//operations.AddString();
-//operations.Print();
-//operations.Print();
-//operations.RemoveAtIndex();
-//operations.Print();
-//Console.Write("Введите название запись для поиска:");
-//string name = Console.ReadLine()!;
-//operations.FindList(name);
-//operations.SortList();
-//operations.Print();
-//Console.Write("Введите название запись для поиска:");
-//name = Console.ReadLine()!;
-//operations.FindAllValues(name);
-//operations.Clear();
-//operations.Print();
