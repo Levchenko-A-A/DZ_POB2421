@@ -95,6 +95,17 @@ namespace HomeWork33
 
         }
 
+        public async void SaveToFile(string path)
+        {
+            File.WriteAllLines(path, ListString!.ToArray());
+        }
+        
+        public void LoadToFile(string path)
+        {
+            ListString!.Clear();
+            ListString = File.ReadAllLines(path).ToList();
+        }
+
         public void Print()
         {
             Console.WriteLine($"{ "Номер записи",13}  {"Содержимое строки"}");

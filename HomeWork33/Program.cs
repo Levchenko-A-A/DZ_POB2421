@@ -13,10 +13,9 @@ do
                       "4. Очистить список.\n" +
                       "5. Сортировка списка.\n" +
                       "6. Поиск всех вхождений\n" +
-                      "7. Операции с числами.\n" +
-                      "8. Сохранение списка в файл.\n" +
-                      "9. Загрузить список в файл\n" +
-                      "10. Выход.");
+                      "7. Сохранение списка в файл.\n" +
+                      "8. Загрузить список из файл\n" +
+                      "9. Выход.");
     int n = 0;
     Console.Write("Ваш выбор:");
     int.TryParse(Console.ReadLine(), out n);
@@ -67,20 +66,26 @@ do
             break;
         case 7:
             {
-
+                Console.Clear();
+                Console.Write("Введите путь к файлу:");
+                string path=Console.ReadLine()!;
+                Console.Write("Введите имя файла:");
+                string nameFile = Console.ReadLine()!;
+                operations.SaveToFile(path+nameFile);
             }
             break;
         case 8:
             {
 
+                Console.Clear();
+                Console.Write("Введите путь к файлу:");
+                string path = Console.ReadLine()!;
+                Console.Write("Введите имя файла:");
+                string nameFile = Console.ReadLine()!;
+                operations.LoadToFile(path + nameFile);
             }
             break;
         case 9:
-            {
-
-            }
-            break;
-        case 10:
             {
                 flag=false;
             }
