@@ -25,4 +25,16 @@ for (int i = 0; i < 5; i++)
     int year = int.Parse(Console.ReadLine()!);
     library.Add(new Book() { Name = name, Autor = autor, Year = year });
 }
+Console.Clear();
+library.sortName();
 library.Print();
+//library.Print();
+//Console.Write("Для вывода списка по названию, ведите название книги:");
+//string nameBook = Console.ReadLine()!;
+//library.FindName(nameBook);
+//Console.Write("Для вывода списка по автору, ведите автора:");
+//string autorBook = Console.ReadLine()!;
+//library.FindAutor(autorBook);
+//Console.Write("Для вывода списка по году издания, введите год издания:");
+//int yearBook = int.Parse(Console.ReadLine()!);
+//library.FindYear(yearBook);
