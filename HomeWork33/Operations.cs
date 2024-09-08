@@ -37,21 +37,33 @@ namespace HomeWork33
         public void FindList(string name)
         {
             if(ListString!.IndexOf(name)>=0)
-                Console.WriteLine(ListString.IndexOf(name)+" "+ListString.Find(x => x == name));
+                Console.WriteLine((ListString.IndexOf(name)+1)+" "+ListString.Find(x => x == name));
             else Console.WriteLine("Такого значения не найдено.");
+            Console.WriteLine("Нажмите любую клавишу.");
+            Console.ReadKey();
         }
 
         public void RemoveAtIndex()
         {
+            Console.Clear();
+            Print();
             Console.Write("Введите индекс записи, которую необходимо удалить:");
             int index;
             int.TryParse(Console.ReadLine()!, out index);
-            ListString.RemoveAt(index-1);
+            if (index >= 0 && index <= ListString.Count())
+            {
+                ListString.RemoveAt(index - 1);
+                Console.WriteLine("Элемент удален.");
+                Print();
+            }
+            else Console.WriteLine("Индеск введен некоректно!!! Нажмите любую клавишу.");
+            Console.ReadKey();
         }
 
         public void Clear()
         {
             ListString.Clear();
+            count = 0;
         }
 
         public void SortList()

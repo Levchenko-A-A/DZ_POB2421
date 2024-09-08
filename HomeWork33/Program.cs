@@ -4,9 +4,11 @@ Operations operations = new Operations();
 bool flag=true; 
 do
 {
+    Console.Clear();
+    operations.Print();
     Console.WriteLine("Меню:\n" +
                       "1. Добавить еще 3 поля.\n" +
-                      "2. Удалить элемент из саиска по индексу.\n" +
+                      "2. Удалить элемент из списка по индексу.\n" +
                       "3. Поиск записи по значению.\n" +
                       "4. Очистить список.\n" +
                       "5. Сортировка списка.\n" +
@@ -21,21 +23,28 @@ do
     {
         case 1:
             {
-
-            }break;
+                Console.Clear();
+                operations.Print();
+                operations.AddString();
+            }
+            break;
         case 2:
             {
-
+                operations.RemoveAtIndex();
             }
             break;
         case 3:
             {
-
+                Console.Clear();
+                operations.Print();
+                Console.Write("Введите значение записи для поиска:");
+                string name=Console.ReadLine()!;
+                operations.FindList(name);
             }
             break;
         case 4:
             {
-
+                operations.Clear();
             }
             break;
         case 5:
@@ -69,12 +78,12 @@ do
             }
             break;
     }
+    Console.Clear();
 }
 while (flag);
 
-operations.AddString();
-operations.Print();
-//operations.RemoveAtIndex();
+//operations.AddString();
+//operations.Print();
 //operations.Print();
 //operations.RemoveAtIndex();
 //operations.Print();
