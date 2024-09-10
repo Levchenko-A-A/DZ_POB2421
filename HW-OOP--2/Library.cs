@@ -33,9 +33,6 @@ namespace HW_OOP__2
     internal class Library
     {
         public List<Book> Books { get; set; } = new();
-        //public Library()
-        //{
-        //}
         public void Add(Book book) => Books.Add(book);
         public void SubName(string? name)
         {
@@ -63,6 +60,7 @@ namespace HW_OOP__2
         {
             foreach (Book b in Books)
                 Console.WriteLine($"{b.Name,12}{b.Autor,20}{b.Year,6}");
+            Console.WriteLine();
         }
         public void FindName(string name)
         {
