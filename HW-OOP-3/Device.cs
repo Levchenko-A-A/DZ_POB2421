@@ -65,7 +65,7 @@ namespace HW_OOP_3
         }
         public void CountFilling(int number)
         {
-            if(number* consumptionFilling <= currentFilling|| number * consumptionDough <= currentDough)
+            if(number* consumptionFilling <= currentFilling && number * consumptionDough <= currentDough)
             {
                 currentDough -= number * consumptionDough;
                 currentFilling -= number * consumptionFilling;
