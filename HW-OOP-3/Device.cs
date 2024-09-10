@@ -13,39 +13,76 @@ namespace HW_OOP_3
         public double MaxVolumeDough
         {
             get { return maxVolumeDough; }
-            set { if (maxVolumeDough >0 && maxVolumeDough <= 500) maxVolumeDough = value; }
+            set { if (value >0 && value <= 500) maxVolumeDough = value; }
         }
         private double maxVolumeFilling;
         public double MaxVolumeFilling
         {
             get { return maxVolumeFilling; }
-            set { if (maxVolumeFilling > 0 && maxVolumeFilling <=100) maxVolumeFilling = value; }
+            set { if (value > 0 && value <=100) maxVolumeFilling = value; }
         }
-        private double consumptiontDough;
+        private double consumptionDough;
         public double ConsumptionDough
         {
-            get { return consumptiontDough; }
-            set { if (consumptiontDough > 0 && consumptiontDough <= 50) consumptiontDough = value; }
+            get { return consumptionDough; }
+            set { if (value > 0 && value <= 50) consumptionDough = value; }
         }
         private double consumptionFilling;
-        private double consumptiontFilling
+        public double ConsumptionFilling
         {
             get { return consumptionFilling; }
-            set { if (consumptionFilling > 0 && consumptionFilling <= 5) consumptionFilling = value; }
+            set { if (value > 0 && value <= 5) consumptionFilling = value; }
         }
-
-
-
-
-
-
-           
-        private double addDough;
-        public double AddDough
-        { 
-            get { return addDough; } 
-            set { addDough = value; } 
+        private double currentDough;
+        public double CurrentDough
+        {
+            get { return currentDough; }
+            set { currentDough = value; }
         }
-
+        private double currentFilling;
+        public double CurrentFilling
+        {
+            get { return currentFilling; }
+            set { currentFilling = value; }
+        }
+        public void AddDough(double vol)
+        {
+            if (vol + currentDough <= maxVolumeDough)
+                currentDough += vol;
+            else currentDough = maxVolumeDough;
+        }
+        public void AddFilling(double vol)
+        {
+            if(vol+currentFilling <= maxVolumeFilling)
+                currentFilling += vol;
+            else currentFilling = maxVolumeFilling;
+        }
+        public void CountDough(int number)
+        {
+            if (number * consumptionDough <= currentDough)
+                currentDough -= number * consumptionDough;
+            else Console.WriteLine("Для выпуска данного количества недостаточно теста");
+        }
+        public void CountFilling(int number)
+        {
+            if(number* consumptionFilling <= currentFilling|| number * consumptionDough <= currentDough)
+            {
+                currentDough -= number * consumptionDough;
+                currentFilling -= number * consumptionFilling;
+            }
+            else Console.WriteLine("Для выпуска данного количества недостаточно теста и начинки");
+        }
+        public void AllCountDough()
+        {
+            Console.WriteLine($"Кол-во пончиков, которое можно выпустить из оставшегося теста: {currentDough/consumptionDough:F0}");
+        }
+        public void AllCountFilling()
+        {
+            Console.WriteLine($"Кол-во пончиков, которое можно выпустить из оставшегося теста: {currentFilling / consumptionFilling:F0}");
+        }
+        public void Print()
+        {
+            Console.WriteLine($"Текуший объем теста для пончиков: {currentDough}\nТекущий объем начинки для приготовления пончиков: {currentFilling}\n");
+        }
     }
 }
