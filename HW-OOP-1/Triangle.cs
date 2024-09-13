@@ -56,5 +56,11 @@ namespace HW_OOP_1
         {
             Console.WriteLine("Периметр: " + Perimetr() + " Площадь: " + Area());
         }
+        public void Median(double _a, double _b, double _c)
+        {
+            Console.WriteLine($"Длина медианы к стороне A: {Math.Sqrt((2 * Math.Pow(_b, 2) + 2 * Math.Pow(_c, 2) + Math.Pow(_a, 2)) / 2):F2}");
+            Console.WriteLine($"Длина медианы к стороне B: {Math.Sqrt((2 * Math.Pow(_a, 2) + 2 * Math.Pow(_c, 2) + Math.Pow(_b, 2)) / 2):F2}");
+            Console.WriteLine($"Длина медианы к стороне C: {Math.Sqrt((2 * Math.Pow(_a, 2) + 2 * Math.Pow(_b, 2) + Math.Pow(_c, 2)) / 2):F2}");
+        }
     }
 }

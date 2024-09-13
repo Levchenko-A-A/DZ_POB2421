@@ -15,3 +15,4 @@ Triangle triangle = new Triangle(a, b, c);
 triangle.Print();
 triangle.A = 8;
 triangle.Print();
+triangle.Median(a, b, c);
