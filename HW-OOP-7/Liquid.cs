@@ -9,7 +9,7 @@ namespace HW_OOP_7
     internal class Liquid
     {
         private string? name;
-        public string? Name { get; set; }
+        public string? Name {get; set; }
         private double density;
         public double Density 
         {

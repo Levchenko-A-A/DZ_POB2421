@@ -36,4 +36,6 @@ foreach (Liquid liq in liquids)
     else
         Console.WriteLine($"{liq.Name,-18}{liq.Density,-6}");
 }
-
+Liquid tmp1 = new Liquid();
+tmp1 = liquids[1];
+Console.WriteLine(tmp1.Name+" "+tmp1.Density);
