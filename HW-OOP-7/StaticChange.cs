@@ -8,7 +8,7 @@ namespace HW_OOP_7
 {
     class StaticChange
     {
-        public static void StaticPrint(List<Liquid> liquids)
+        public static void Print(List<Liquid> liquids)
         {
             foreach (Liquid liq in liquids)
             {

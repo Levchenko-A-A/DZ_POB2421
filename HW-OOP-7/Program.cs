@@ -29,6 +29,6 @@ liquids.Add(new Alcohol()
     Density = 0.81,
     Fortress = 96
 });
-StaticChange.StaticPrint(liquids);
+StaticChange.Print(liquids);
 StaticChange.ChangeName(liquids, "Вино", "Бренди");
-StaticChange.StaticPrint(liquids);
+StaticChange.Print(liquids);
