@@ -16,5 +16,16 @@ namespace HW_OOP_7
                   else throw new Exception("Данный напиток не является алкогольным.");
             }
         }
+        public Alcohol()
+        {
+        }
+        public Alcohol(string? name, double density, double fortress): base(name, density)
+        {
+            Fortress = fortress;
+        }
+        public void ChangeFortress( double newFortress)
+        { 
+            Fortress = newFortress; 
+        }
     }
 }

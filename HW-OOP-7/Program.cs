@@ -2,33 +2,30 @@
 using System.Collections.Generic;
 
 List<Liquid> liquids = new List<Liquid>();
-liquids.Add(new Liquid()
+liquids.Add(new Liquid("Вода",1));
+liquids.Add(new Liquid("Смоляное масло",0.96));
+liquids.Add(new Liquid("Бром",3.12));
+liquids.Add(new Alcohol("Вино", 1.38, 13.2));
+liquids.Add(new Alcohol("Спирт",0.81,96));
+StaticChange.Print(liquids);
+for(int i = 0; i < liquids.Count; i++)
 {
-    Name = "Вода",
-    Density = 1
-});
-liquids.Add(new Liquid()
-{
-    Name = "Смоляное масло",
-    Density = 0.96
-});
-liquids.Add(new Liquid()
-{
-    Name = "Бром",
-    Density = 3.12
-});
-liquids.Add(new Alcohol()
-{
-    Name = "Вино",
-    Density = 1.38,
-    Fortress = 13.2
-});
-liquids.Add(new Alcohol()
-{
-    Name = "Спирт",
-    Density = 0.81,
-    Fortress = 96
-});
+    Liquid tmp1=new Liquid();
+    Alcohol tmp2 = new Alcohol();
+    tmp1 = liquids[i];
+    tmp2.Name = liquids[i].Name;
+    tmp2.Density = liquids[i].Density;
+    if (liquids[i] is Liquid && tmp1.Name == "Бром")
+    {
+        tmp1.ChangeDensity(5.12);
+        liquids[i] = tmp1;
+    }
+    else if(liquids[i] is Alcohol && tmp2.Name == "Вино")
+    {
+        tmp2.ChangeFortress(15.2);
+        liquids[i] = tmp2;
+    }    
+}
 StaticChange.Print(liquids);
 StaticChange.ChangeName(liquids, "Вино", "Бренди");
 StaticChange.Print(liquids);

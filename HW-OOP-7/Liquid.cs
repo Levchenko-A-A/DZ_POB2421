@@ -18,5 +18,17 @@ namespace HW_OOP_7
                 else throw new Exception("Введенный диапазон не входит в границы от 0.0708 до 13.6");
             } 
         }
+        public Liquid()
+        {
+        }
+        public Liquid(string? name, double density)
+        {
+            Name = name;
+            Density = density;
+        }
+        public void ChangeDensity(double newDensity)
+        {
+            Density = newDensity;
+        }
     }
 }
