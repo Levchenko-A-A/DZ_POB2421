@@ -1,4 +1,5 @@
 ﻿using HW_OOP_7;
+using System.Collections.Generic;
 
 List<Liquid> liquids = new List<Liquid>();
 liquids.Add(new Liquid()
@@ -28,14 +29,6 @@ liquids.Add(new Alcohol()
     Density = 0.81,
     Fortress = 96
 });
-
-foreach (Liquid liq in liquids)
-{
-    if (liq is Alcohol)
-        Console.WriteLine($"{liq.Name,-18}{liq.Density,-6}{((Alcohol)liq).Fortress,-8}");
-    else
-        Console.WriteLine($"{liq.Name,-18}{liq.Density,-6}");
-}
-Liquid tmp1 = new Liquid();
-tmp1 = liquids[1];
-Console.WriteLine(tmp1.Name+" "+tmp1.Density);
+StaticChange.StaticPrint(liquids);
+StaticChange.ChangeName(liquids, "Вино", "Бренди");
+StaticChange.StaticPrint(liquids);
