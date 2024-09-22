@@ -27,20 +27,6 @@ namespace HW_OOP_7
                 if(tmp1 != null&& tmp1.Name==nameFind) 
                     liquid.Name = nameChange;
             }
-            //for (int i=0; i<listLiq.Count; i++)
-            //{
-            //    if (listLiq is Alcohol)
-            //    {
-            //        tmp1 = listLiq[i];
-            //    }
-            //    else
-            //    {
-            //        tmp2 = listLiq[i];
-            //        if (tmp2.Name == nameFind)
-            //            tmp2.Name = nameChange;
-            //        listLiq[i] = tmp2;
-            //    }
-            //}
         }
     }
 }
