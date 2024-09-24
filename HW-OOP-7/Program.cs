@@ -29,3 +29,12 @@ for(int i = 0; i < liquids.Count; i++)
 StaticChange.Print(liquids);
 StaticChange.ChangeName(liquids, "Вино", "Бренди");
 StaticChange.Print(liquids);
+
+//Задание2
+Console.WriteLine();
+Pair pair = new Pair(10,12);
+Rectangle rectangle = new Rectangle(10,12);
+Console.WriteLine($"Произведение двух чисел {pair.First}*{pair.Second} = {pair.Mul()}");
+Console.WriteLine($"Периметр прямоугольника со сторонами {rectangle.First} и {rectangle.Second} = {rectangle.Perimeter()}");
+Console.WriteLine($"Площадь прямоугольника со сторонами {rectangle.First} и {rectangle.Second} = {rectangle.Square()}");
+Console.WriteLine($"Площадь прямоугольника со сторонами {rectangle.First} и {rectangle.Second} = {rectangle.Mul()}");
