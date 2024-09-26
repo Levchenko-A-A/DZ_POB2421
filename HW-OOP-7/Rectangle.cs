@@ -14,6 +14,5 @@ namespace HW_OOP_7
         public double Perimeter() => 2*First + 2*Second;
         public double Square() => First * Second;
         public new double Mul() => First * Second;
-
     }
 }

@@ -38,3 +38,7 @@ Console.WriteLine($"Произведение двух чисел {pair.First}*{p
 Console.WriteLine($"Периметр прямоугольника со сторонами {rectangle.First} и {rectangle.Second} = {rectangle.Perimeter()}");
 Console.WriteLine($"Площадь прямоугольника со сторонами {rectangle.First} и {rectangle.Second} = {rectangle.Square()}");
 Console.WriteLine($"Площадь прямоугольника со сторонами {rectangle.First} и {rectangle.Second} = {rectangle.Mul()}");
+rectangle.ChangeFirst(20);
+rectangle.ChangeSecond(120);
+Console.WriteLine($"Периметр прямоугольника со сторонами {rectangle.First} и {rectangle.Second} = {rectangle.Perimeter()}");
+Console.WriteLine($"Площадь прямоугольника со сторонами {rectangle.First} и {rectangle.Second} = {rectangle.Square()}");
