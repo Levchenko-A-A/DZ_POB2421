@@ -30,7 +30,7 @@ namespace HW_OOP_15
             return bg.Height*bg.TotalArea;
         }
 
-        public static void Volume(List<Building> bd)
+        public static void Volume(List<Building> bd, Calc db)
         {
             foreach (Building i in bd)
             {
@@ -39,7 +39,7 @@ namespace HW_OOP_15
                 Console.WriteLine($"Количество этажей: {i.Floors}");
                 Console.WriteLine($"Общая площадь: {i.TotalArea} кв.м.");
                 Console.WriteLine($"Местоположение: {i.Location}");
-                Console.WriteLine($"Объём: {operation(i)} куб.м.");
+                Console.WriteLine($"Объём: {db(i)} куб.м.");
                 Console.WriteLine();
             }
         }
