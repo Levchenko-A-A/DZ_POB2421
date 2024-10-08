@@ -18,7 +18,6 @@ namespace HW_OOP_13
             Name = name;
             Age = age;
         }
-
         public abstract double AmountOfFood();
     }
 }

@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -24,7 +23,7 @@ namespace HW_OOP_13
         }
         public double FoodQuantity
         {
-            get { return Math.Round(AmountOfFood(), 3); }
+            get { return AmountOfFood(); }
         }
         public Predator(int id, string? name, int age, double weight, double normOnePer) : base(id, name, age)
         {
@@ -33,7 +32,7 @@ namespace HW_OOP_13
         }
         public override double AmountOfFood()
         {
-            return weight * normOnePer;
+            return Math.Round(weight * normOnePer, 3);
         }
         public override string? ToString()
         {
