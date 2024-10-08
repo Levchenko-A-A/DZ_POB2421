@@ -17,19 +17,19 @@
 //При вводе слова “выход”, выводится список всех клиентов и количества их
 //посещений
 
-//Dictionary<string, int> shoping = new Dictionary<string, int>();
-//string enterString = "";
-//do
-//{
-//    Console.WriteLine("Введите имя клиента:");
-//    enterString = Console.ReadLine()!;
-//    if (enterString == "exit") break;
-//    if (shoping.ContainsKey(enterString)) shoping[enterString]++;
-//    else shoping.Add(enterString, 1);
-//    //shoping.Add(client, i++);
-//}
-//while (true);
-//foreach (var item in shoping) Console.WriteLine(item.Key + " " + item.Value);
+Dictionary<string, int> shoping = new Dictionary<string, int>();
+string enterString = "";
+do
+{
+    Console.WriteLine("Введите имя клиента:");
+    enterString = Console.ReadLine()!;
+    if (enterString == "exit") break;
+    if (shoping.ContainsKey(enterString)) shoping[enterString]++;
+    else shoping.Add(enterString, 1);
+    //shoping.Add(client, i++);
+}
+while (true);
+foreach (var item in shoping) Console.WriteLine(item.Key + " " + item.Value);
 
 
 //3. Проверка на уникальность:

@@ -3,6 +3,10 @@
     "WSL": {
       "commandName": "WSL2",
       "distributionName": ""
+    },
+    "Animal": {
+      "commandName": "Executable",
+      "executablePath": "F:\\HWOOP\\HW-OOP-13\\HW-OOP-13.csproj.user"
     }
   }
 }
