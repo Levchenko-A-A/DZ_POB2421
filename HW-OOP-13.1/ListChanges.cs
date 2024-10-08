@@ -37,9 +37,9 @@ namespace HW_OOP_13._1
             {
                 for (int i = 0; i < list.Count; i++)
                 {
-                    var key = list[i];
+                    Animal key = list[i];
                     int j = i - 1;
-                    while (j >= 0 && list[j].AmountOfFood() < key.AmountOfFood())
+                    while (j >= 0 && list[j].FoodQuantity < key.FoodQuantity)
                     {
                         list[j + 1] = list[j];
                         j--;
@@ -48,11 +48,11 @@ namespace HW_OOP_13._1
                 }
                 for (int j = 0; j < list.Count - 1; j++)
                 {
-                    if (list[j + 1].AmountOfFood() == list[j].AmountOfFood())
+                    if (list[j + 1].FoodQuantity == list[j].FoodQuantity)
                     {
                         if (list[j + 1].Name.CompareTo(list[j].Name) < 0)
                         {
-                            var temp = list[j + 1];
+                            Animal temp = list[j + 1];
                             list[j + 1] = list[j];
                             list[j] = temp;
                         }
@@ -67,12 +67,15 @@ namespace HW_OOP_13._1
             {
                 foreach (var animal in list)
                 {
-                    writer.WriteLine(animal);
+                    writer.WriteLine($"{animal.Id}|{animal.Name}|{animal.Weight}|{animal.Age}|{animal.TypeOfFood}|{animal.NormOnePer}");
                 }
             }
+
+
         }
         public static void ReadFile(List<Animal> list, string name)
         {
+
             try
             {
                 using (StreamReader reader = new StreamReader(name))
@@ -80,26 +83,30 @@ namespace HW_OOP_13._1
                     string line;
                     while ((line = reader.ReadLine()!) != null)
                     {
-                        string[] parts = Regex.Split(line, "[ ]+");
-                        if (parts[6] == "Хищное")
+                        string[] parts = line.Split("|");
+                        Animal newAnimal;
+                        if (parts[4] == "Хищное")
                         {
-                            list.Add(new Predator(int.Parse(parts[1]), parts[2], int.Parse(parts[3]), double.Parse(parts[4]), double.Parse(parts[5])));
+                            newAnimal = new Predator(Convert.ToInt32(parts[0]), parts[1], Convert.ToDouble(parts[2]), Convert.ToInt32(parts[3]), Convert.ToDouble(parts[5]));
                         }
-                        else if (parts[6] == "Травоядное")
+                        else if (parts[4] == "Травоядное")
                         {
-                            list.Add(new Omnivorous(int.Parse(parts[1]), parts[2], int.Parse(parts[3]), double.Parse(parts[4]), double.Parse(parts[5])));
+                            newAnimal = new Omnivorous(Convert.ToInt32(parts[0]), parts[1], Convert.ToDouble(parts[2]), Convert.ToInt32(parts[3]), Convert.ToDouble(parts[5]));
                         }
-                        else if (parts[6] == "Всеядное")
+                        else if (parts[4] == "Всеядное")
                         {
-                            list.Add(new Herbivore(int.Parse(parts[1]), parts[2], int.Parse(parts[3]), double.Parse(parts[4]), double.Parse(parts[5])));
+                            newAnimal = new Herbivore(Convert.ToInt32(parts[0]), parts[1], Convert.ToDouble(parts[2]), Convert.ToInt32(parts[3]), Convert.ToDouble(parts[5]));
                         }
                         else
                         {
                             throw new Exception("Invalid animal type");
                         }
+
+                        newAnimal.Id = int.Parse(parts[0]);
+                        newAnimal.Name = parts[1];
+                        list.Add(newAnimal);
                     }
                 }
-
             }
             catch (Exception ex)
             {
