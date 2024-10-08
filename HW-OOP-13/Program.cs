@@ -25,7 +25,6 @@ ListChanges.PrintLastId(zoo, 3);
 List<Animal> zooNew = new List<Animal>(zoo);
 ListChanges.ListSortFoodQuantity(zoo);
 ListChanges.PrintList(zoo);
-//ListChanges.PrintList(zooNew);
 ListChanges.PrintCountName(zoo, 5);
 ListChanges.PrintLastId(zoo, 3);
 ListChanges.SaveFile(zoo, "animal1.txt");
