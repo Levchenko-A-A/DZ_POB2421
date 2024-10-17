@@ -126,7 +126,36 @@ class TaskManager
             if (task is Event someEvent) someEvent.Location = str;
         }
     }
-
+    public static void ListSortFoodQuantity(ITask task)
+    {
+        if (list != null && list.Any())
+        {
+            for (int i = 0; i < list.Count; i++)
+            {
+                Animal key = list[i];
+                int j = i - 1;
+                while (j >= 0 && list[j].FoodQuantity < key.FoodQuantity)
+                {
+                    list[j + 1] = list[j];
+                    j--;
+                }
+                list[j + 1] = key;
+            }
+            for (int j = 0; j < list.Count - 1; j++)
+            {
+                if (list[j + 1].FoodQuantity == list[j].FoodQuantity)
+                {
+                    if (list[j + 1].Name.CompareTo(list[j].Name) < 0)
+                    {
+                        Animal temp = list[j + 1];
+                        list[j + 1] = list[j];
+                        list[j] = temp;
+                    }
+                }
+            }
+        }
+        else Console.WriteLine("Список пустой");
+    }
 }
 interface ITask
 {
