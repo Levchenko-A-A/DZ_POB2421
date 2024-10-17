@@ -38,6 +38,8 @@ taskManager.Print();
 Console.WriteLine();
 taskManager.ListSort(taskManager.Tasks);
 taskManager.Print();
+Console.WriteLine();
+taskManager.SaveFile(taskManager.Tasks, "test.txt");
 
 enum Prioity
 {
@@ -56,6 +58,11 @@ class Task : ITask
     {
         Console.WriteLine(Title + " " + DueDate + " " + Prioity);
     }
+
+    public override string? ToString()
+    {
+        return $"{"Task"},{Title},{DueDate},{Prioity}";
+    }
 }
 
 class Event : ITask
@@ -68,6 +75,11 @@ class Event : ITask
     public void Display()
     {
         Console.WriteLine(Title + " " + DueDate + " " + Prioity + " " + Location);
+    }
+
+    public override string? ToString()
+    {
+        return $"{"Event"},{Title},{DueDate},{Prioity},{Location}";
     }
 }
 class TaskManager
@@ -158,6 +170,16 @@ class TaskManager
             }
         }
         else Console.WriteLine("Список пустой");
+    }
+    public void SaveFile(List<ITask> list, string name)
+    {
+        using (StreamWriter writer = new StreamWriter(name, false))
+        {
+            foreach (var items in list)
+            {
+                writer.WriteLine(items);
+            }
+        }
     }
 }
 interface ITask
