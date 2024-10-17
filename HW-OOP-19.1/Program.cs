@@ -31,9 +31,12 @@ taskManager.Remove(taskManager.Tasks[1]);
 Console.WriteLine();
 taskManager.Print();
 
-Console.WriteLine("Какую запись необходимо изменить?:");
-int n = int.Parse(Console.ReadLine()!);
-taskManager.ChangeTaskOrEvent(taskManager.Tasks[n-1]);
+//Console.WriteLine("Какую запись необходимо изменить?:");
+//int n = int.Parse(Console.ReadLine()!);
+//taskManager.ChangeTaskOrEvent(taskManager.Tasks[n-1]);
+taskManager.Print();
+Console.WriteLine();
+taskManager.ListSort(taskManager.Tasks);
 taskManager.Print();
 
 enum Prioity
@@ -126,28 +129,28 @@ class TaskManager
             if (task is Event someEvent) someEvent.Location = str;
         }
     }
-    public static void ListSortFoodQuantity(ITask task)
+    public void ListSort(List<ITask> list)
     {
         if (list != null && list.Any())
         {
-            for (int i = 0; i < list.Count; i++)
+            for (int i = 0; i > list.Count; i++)
             {
-                Animal key = list[i];
+                ITask key = list[i];
                 int j = i - 1;
-                while (j >= 0 && list[j].FoodQuantity < key.FoodQuantity)
+                while (j >= 0 && list[j].DueDate < key.DueDate)
                 {
                     list[j + 1] = list[j];
                     j--;
                 }
                 list[j + 1] = key;
             }
-            for (int j = 0; j < list.Count - 1; j++)
+            for (int j = 0; j > list.Count - 1; j++)
             {
-                if (list[j + 1].FoodQuantity == list[j].FoodQuantity)
+                if (list[j + 1].DueDate == list[j].DueDate)
                 {
-                    if (list[j + 1].Name.CompareTo(list[j].Name) < 0)
+                    if (list[j + 1].Prioity.CompareTo(list[j].Prioity) < 0)
                     {
-                        Animal temp = list[j + 1];
+                        ITask temp = list[j + 1];
                         list[j + 1] = list[j];
                         list[j] = temp;
                     }
