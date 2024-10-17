@@ -32,7 +32,7 @@ taskManager.Add(new Task()
 //taskManager.Print();
 //taskManager.Remove(taskManager.Tasks[1]);
 //Console.WriteLine();
-taskManager.Print();
+//taskManager.Print();
 
 //Console.WriteLine("Какую запись необходимо изменить?:");
 //int n = int.Parse(Console.ReadLine()!);
@@ -42,10 +42,11 @@ taskManager.Print();
 //taskManager.ListSort(taskManager.Tasks);
 //taskManager.Print();
 //Console.WriteLine();
-taskManager.SaveFile(taskManager.Tasks, "test.txt");
+//taskManager.SaveFile(taskManager.Tasks, "test.txt");
 taskManager.Clear();
 taskManager.Print();
-taskManager.ReadFile(taskManager, "test.txt");
+taskManager.ReadFile(taskManager.Tasks, "test.txt");
+taskManager.Print();
 
 enum Prioity
 {
@@ -195,7 +196,7 @@ class TaskManager
             }
         }
     }
-    public static void ReadFile(List<ITask> list, string name)
+    public void ReadFile(List<ITask> list, string name)
     {
 
         try
@@ -206,7 +207,6 @@ class TaskManager
                 while ((line = reader.ReadLine()!) != null)
                 {
                     string[] parts = line.Split(",");
-                    ITask newTask;
                     if (parts[0] == "Task")
                     {
                         list.Add(new Task { Title = parts[1], DueDate = DateTime.Parse(parts[2]), Prioity = (Prioity)Enum.Parse(typeof(Prioity), parts[3], true)});
