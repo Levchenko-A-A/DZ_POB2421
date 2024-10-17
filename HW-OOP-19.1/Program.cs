@@ -1,4 +1,7 @@
-﻿TaskManager taskManager = new TaskManager();
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
+
+TaskManager taskManager = new TaskManager();
 taskManager.Add(new Task()
 {
     DueDate = DateTime.Parse("12.02.2024"),
@@ -26,20 +29,23 @@ taskManager.Add(new Task()
     Title = "t4"
 });
 
-taskManager.Print();
-taskManager.Remove(taskManager.Tasks[1]);
-Console.WriteLine();
+//taskManager.Print();
+//taskManager.Remove(taskManager.Tasks[1]);
+//Console.WriteLine();
 taskManager.Print();
 
 //Console.WriteLine("Какую запись необходимо изменить?:");
 //int n = int.Parse(Console.ReadLine()!);
 //taskManager.ChangeTaskOrEvent(taskManager.Tasks[n-1]);
-taskManager.Print();
-Console.WriteLine();
-taskManager.ListSort(taskManager.Tasks);
-taskManager.Print();
-Console.WriteLine();
+//taskManager.Print();
+//Console.WriteLine();
+//taskManager.ListSort(taskManager.Tasks);
+//taskManager.Print();
+//Console.WriteLine();
 taskManager.SaveFile(taskManager.Tasks, "test.txt");
+taskManager.Clear();
+taskManager.Print();
+taskManager.ReadFile(taskManager, "test.txt");
 
 enum Prioity
 {
@@ -94,14 +100,22 @@ class TaskManager
     {
         Tasks.Remove(task);
     }
+    public void Clear()
+    {
+        Tasks.Clear();
+    }
     public void Print()
     {
-        int j = 1;
-        foreach (var item in Tasks)
+        if (Tasks != null)
         {
-            Console.Write(j++ + " ");
-            item.Display();
+            int j = 1;
+            foreach (var item in Tasks)
+            {
+                Console.Write(j++ + " ");
+                item.Display();
+            }
         }
+        else Console.WriteLine("Список пуст.");
     }
     public void ChangeTaskOrEvent(ITask task)
     {
@@ -179,6 +193,38 @@ class TaskManager
             {
                 writer.WriteLine(items);
             }
+        }
+    }
+    public static void ReadFile(List<ITask> list, string name)
+    {
+
+        try
+        {
+            using (StreamReader reader = new StreamReader(name))
+            {
+                string line;
+                while ((line = reader.ReadLine()!) != null)
+                {
+                    string[] parts = line.Split(",");
+                    ITask newTask;
+                    if (parts[0] == "Task")
+                    {
+                        list.Add(new Task { Title = parts[1], DueDate = DateTime.Parse(parts[2]), Prioity = (Prioity)Enum.Parse(typeof(Prioity), parts[3], true)});
+                    }
+                    else if (parts[0] == "Event")
+                    {
+                        list.Add(new Event { Title = parts[1], DueDate = DateTime.Parse(parts[2]), Prioity = (Prioity)Enum.Parse(typeof(Prioity), parts[3], true), Location = parts[4]});
+                    }
+                    else
+                    {
+                        throw new Exception("Неверный тип");
+                    }
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error reading file: {ex.Message}");
         }
     }
 }
