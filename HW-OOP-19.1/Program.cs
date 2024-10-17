@@ -123,7 +123,7 @@ class TaskManager
                 Console.WriteLine("Значение приоритета введено не верно.");
             Console.Write("Введите новое локацию задачи:");
             str = Console.ReadLine()!;
-            (Event)task.Location = str;
+            if (task is Event someEvent) someEvent.Location = str;
         }
     }
 
