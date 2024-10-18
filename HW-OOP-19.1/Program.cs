@@ -90,7 +90,7 @@ class Event : ITask
         return $"{"Event"},{Title},{DueDate},{Prioity},{Location}";
     }
 }
-class TaskManager: IEnumerable
+class TaskManager
 {
     public List<ITask> Tasks { get; set; } = new();
 
@@ -123,9 +123,13 @@ class TaskManager: IEnumerable
     {
         Console.Write("По какому приоритеру отфильтровать список? (Low, Medium, High):");
         string str = Console.ReadLine()!;
-        foreach (var item in Tasks)
-            if (item.Prioity.ToString() == str)
-                item.Display();
+        if (Enum.IsDefined(typeof(Prioity), str))
+        {
+            foreach (var item in Tasks)
+                if (item.Prioity.ToString() == str)
+                    item.Display();
+        }
+        else Console.WriteLine("Условие для фильтра введено неверно.");
     }
     public void ChangeTaskOrEvent(ITask task)
     {
@@ -236,8 +240,6 @@ class TaskManager: IEnumerable
             Console.WriteLine($"Error reading file: {ex.Message}");
         }
     }
-
-    public IEnumerator GetEnumerator() => Tasks.GetEnumerator();
 }
 interface ITask
 {
