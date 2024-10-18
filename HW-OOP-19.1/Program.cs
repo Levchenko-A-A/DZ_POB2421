@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 TaskManager taskManager = new TaskManager();
@@ -29,24 +30,24 @@ taskManager.Add(new Task()
     Title = "t4"
 });
 
-//taskManager.Print();
-//taskManager.Remove(taskManager.Tasks[1]);
-//Console.WriteLine();
-//taskManager.Print();
-
-//Console.WriteLine("Какую запись необходимо изменить?:");
-//int n = int.Parse(Console.ReadLine()!);
-//taskManager.ChangeTaskOrEvent(taskManager.Tasks[n-1]);
-//taskManager.Print();
-//Console.WriteLine();
-//taskManager.ListSort(taskManager.Tasks);
-//taskManager.Print();
-//Console.WriteLine();
-//taskManager.SaveFile(taskManager.Tasks, "test.txt");
+taskManager.Print();
+taskManager.Remove(taskManager.Tasks[1]);
+Console.WriteLine();
+taskManager.Print();
+Console.WriteLine("Какую запись необходимо изменить?:");
+int n = int.Parse(Console.ReadLine()!);
+taskManager.ChangeTaskOrEvent(taskManager.Tasks[n - 1]);
+taskManager.Print();
+Console.WriteLine();
+taskManager.ListSort(taskManager.Tasks);
+taskManager.Print();
+Console.WriteLine();
+taskManager.SaveFile(taskManager.Tasks, "test.txt");
 taskManager.Clear();
 taskManager.Print();
 taskManager.ReadFile(taskManager.Tasks, "test.txt");
 taskManager.Print();
+taskManager.Filter();
 
 enum Prioity
 {
@@ -89,7 +90,7 @@ class Event : ITask
         return $"{"Event"},{Title},{DueDate},{Prioity},{Location}";
     }
 }
-class TaskManager
+class TaskManager: IEnumerable
 {
     public List<ITask> Tasks { get; set; } = new();
 
@@ -117,6 +118,14 @@ class TaskManager
             }
         }
         else Console.WriteLine("Список пуст.");
+    }
+    public void Filter()
+    {
+        Console.Write("По какому приоритеру отфильтровать список? (Low, Medium, High):");
+        string str = Console.ReadLine()!;
+        foreach (var item in Tasks)
+            if (item.Prioity.ToString() == str)
+                item.Display();
     }
     public void ChangeTaskOrEvent(ITask task)
     {
@@ -227,6 +236,8 @@ class TaskManager
             Console.WriteLine($"Error reading file: {ex.Message}");
         }
     }
+
+    public IEnumerator GetEnumerator() => Tasks.GetEnumerator();
 }
 interface ITask
 {
