@@ -18,13 +18,6 @@ task4.Priority = Priority.High;
 task5.Title = "Задача 5";
 task5.DueDate = DateTime.Parse("01.02.2025");
 task5.Priority = Priority.Medium;
-
-Console.WriteLine(task1);
-Console.WriteLine(task2);
-Console.WriteLine(task3);
-Console.WriteLine(task4);
-Console.WriteLine(task5);
-
 List<Employee> employees = new List<Employee>();
 employees.Add(new Employee("Иван Иванов", 1));
 employees.Add(new Employee("Петр Петров", 2));
@@ -34,8 +27,23 @@ employees[0].Tasks.Add(new Task("Задача 2", DateTime.Parse("01.02.2025"), 
 employees[1].Tasks.Add(task4);
 employees[2].Tasks.Add(task5);
 
-foreach (Employee item in employees)
-    Console.WriteLine(item);
+for(int i = 0; i < employees.Count; i++)
+{
+    Console.Write($"{employees[i].Id}  ");
+    Console.WriteLine(employees[i].Name);
+    foreach(Task item in employees[i].Tasks)
+        Console.WriteLine(item);
+}
+
+employees.Sort();
+Console.WriteLine();
+for (int i = 0; i < employees.Count; i++)
+{
+    Console.Write($"{employees[i].Id}  ");
+    Console.WriteLine(employees[i].Name);
+    foreach (Task item in employees[i].Tasks)
+        Console.WriteLine(item);
+}
 
 enum Priority
 {
@@ -43,7 +51,7 @@ enum Priority
     Medium,
     High
 };
-class Employee : ICloneable, IComparable, IEnumerable
+class Employee : ICloneable, IComparable<Employee>, IEnumerable<Task>
 {
     public string? Name { get; set; }
     private int id;
@@ -98,14 +106,21 @@ class Employee : ICloneable, IComparable, IEnumerable
         return Tasks.GetEnumerator();
     }
 
-    IEnumerator IEnumerable.GetEnumerator()
-    {
-        return Tasks.GetEnumerator();
-    }
+    IEnumerator IEnumerable.GetEnumerator() => Tasks.GetEnumerator();
+
+    //public void Print(Employee item)
+    //{
+    //    Console.WriteLine(item.Id);
+    //    Console.WriteLine(item.Name);
+    //    foreach (var task in item)
+    //    {
+    //        Console.WriteLine(task);
+    //    }
+    //}
 
     public override string? ToString()
     {
-        return $"{id} {Name} {Tasks}";
+        return $"{id} {Name} {Tasks.ToString()}";
     }
 
     public object Clone() => new Employee(this);    
@@ -130,12 +145,6 @@ class Task: ICloneable
         Priority = task.Priority;
     }
     public object Clone()=>new Task(this);
-
-    public void Display()
-    {
-        Console.WriteLine(Title + " " + DueDate + " " + Priority);
-    }
-
     public override string? ToString()
     {
         return $"{Title} {DueDate} {Priority}";
