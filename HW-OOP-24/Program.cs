@@ -1,13 +1,15 @@
-﻿using System.Text.Json;
+﻿using System.Collections;
+using System.Text.Json;
 using static System.Net.Mime.MediaTypeNames;
 
-Library Books = new Library(new Book("qwertyu","Ivanov","Povest",1957));
+Library Books = new Library();
+Books.BookAdd(new Book("qwertyu","Ivanov","Povest",1957));
 Books.BookAdd(new Book("sdsfgfg", "Petrov", "Poema", 1983));
 Books.BookAdd(new Book("nvjvjv", "Sidorov", "Novella", 1882));
 
-foreach (var book in Books.GetBooks())
+foreach (Library book in Books)
 {
-    Console.WriteLine(book.Title + " " + book.Author + " " + book.Genre + " " + book.Year);
+    Console.WriteLine(book);
 }
 string textJson = Books.SerializeBooksToJson(Books.GetBooks());
 Library.SaveToFile("Booksjson.json", textJson);
@@ -27,15 +29,9 @@ foreach (var book in Books2)
 
 
 
-class Library
+class Library: IEnumerable
 {
     List<Book> books { get; set; } = new();
-
-    public Library(Book book)
-    {
-        books.Add(book);
-    }
-
     public Library()
     {
     }
@@ -67,6 +63,8 @@ class Library
     {
         return JsonSerializer.Deserialize<List<Book>>(text)!;
     }
+
+    public IEnumerator GetEnumerator() => books.GetEnumerator();
 }
 
 class Book
@@ -90,4 +88,8 @@ class Book
         set { if (value > 0) year = value; } 
     }
 
+    public override string? ToString()
+    {
+        return $"{Title} {Author} {Genre} {Year}";
+    }
 }
