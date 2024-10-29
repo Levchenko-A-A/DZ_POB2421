@@ -7,28 +7,19 @@ Books.BookAdd(new Book("qwertyu","Ivanov","Povest",1957));
 Books.BookAdd(new Book("sdsfgfg", "Petrov", "Poema", 1983));
 Books.BookAdd(new Book("nvjvjv", "Sidorov", "Novella", 1882));
 
-foreach (Library book in Books)
+foreach (var book in Books)
 {
     Console.WriteLine(book);
 }
-string textJson = Books.SerializeBooksToJson(Books.GetBooks());
+string textJson = Books.SerializeBooksToJson(Books);
 Library.SaveToFile("Booksjson.json", textJson);
 string textFromJson = Library.ReadToFile("Booksjson.json");
 Console.WriteLine(textFromJson);
-
-List<Book> Books2 = Books.DeserializeBooksFromJsonFromFile(textFromJson)!;
+List<Book> Books2 = Books.DeserializeBooksFromJson(textFromJson)!;
 foreach (var book in Books2)
 {
-    Books.BookAdd(book);
+    Console.WriteLine(book);
 }
-foreach (var book in Books2)
-{
-    Console.WriteLine(book.Title + " " + book.Author + " " + book.Genre + " " + book.Year);
-}
-
-
-
-
 class Library: IEnumerable
 {
     List<Book> books { get; set; } = new();
@@ -37,7 +28,6 @@ class Library: IEnumerable
     }
 
     public void BookAdd(Book book)=>books.Add(book);
-    public List<Book> GetBooks() => books;
     public static void SaveToFile(string filename, string text)
     {
         using (StreamWriter writer = new StreamWriter(filename, false))
@@ -54,12 +44,12 @@ class Library: IEnumerable
         }
         return text;
     }
-    public string SerializeBooksToJson(List<Book> books)
+    public string SerializeBooksToJson(Library books)
     {
         string? json=JsonSerializer.Serialize(books);
         return json;
     }
-    public List<Book> DeserializeBooksFromJsonFromFile(string text)
+    public List<Book> DeserializeBooksFromJson(string text)
     {
         return JsonSerializer.Deserialize<List<Book>>(text)!;
     }
