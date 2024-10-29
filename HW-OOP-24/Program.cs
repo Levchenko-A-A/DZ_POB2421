@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Text.Json;
 using static System.Net.Mime.MediaTypeNames;
 
@@ -6,25 +7,23 @@ Library Books = new Library();
 Books.BookAdd(new Book("qwertyu","Ivanov","Povest",1957));
 Books.BookAdd(new Book("sdsfgfg", "Petrov", "Poema", 1983));
 Books.BookAdd(new Book("nvjvjv", "Sidorov", "Novella", 1882));
-
 foreach (var book in Books)
 {
     Console.WriteLine(book);
 }
 string textJson = Books.SerializeBooksToJson(Books);
 Library.SaveToFile("Booksjson.json", textJson);
-
 string textFromJson = Library.ReadFromFile("Booksjson.json");
 Console.WriteLine(textFromJson);
-
 List<Book> Books2 = Books.DeserializeBooksFromJson(textFromJson)!;
 foreach (var book in Books2)
 {
     Console.WriteLine(book);
 }
-class Library: IEnumerable
+class Library: IEnumerable, IEnumerator
 {
     List<Book> books { get; set; } = new();
+    int index = -1;
     public Library()
     {
     }
@@ -65,10 +64,33 @@ class Library: IEnumerable
     {
         return JsonSerializer.Deserialize<List<Book>>(text)!;
     }
+    public IEnumerator GetEnumerator()
+    {
+        return this;
+    }
+    public bool MoveNext()
+    {
+        if (index == books.Count - 1)
+        {
+            Reset();
+            return false;
+        }
 
-    public IEnumerator GetEnumerator() => books.GetEnumerator();
+        index++;
+        return true;
+    }
+    public void Reset()
+    {
+        index = -1;
+    }
+    public object Current
+    {
+        get
+        {
+            return books[index];
+        }
+    }
 }
-
 class Book
 {
     public string? Title { get; set; }
