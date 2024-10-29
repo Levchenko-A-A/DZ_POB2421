@@ -9,10 +9,10 @@ string? password = Console.ReadLine()!;
 User newUser = new(userName, userLogin, password);
 public class User: IUser
 {
-    public int Id { get; set; }
-    public string? Name { get; set; }
-    public string? Login { get; set; }
-    public string? Password { get; set; }
+    public int Id { private get; set; }
+    public string? Name { private get; set; }
+    public string? Login { private get; set; }
+    public string? Password { private get; set; }
     public User(string? name, string? login, string? password)
     {
         string[] userData;
@@ -32,15 +32,18 @@ public class User: IUser
         Id = userData.Length;
         try
         {
-            Name = new IsDataExists((data) => { if (string.IsNullOrEmpty(data)) { throw new Exception("Нет данных"); } return data; })(name!);
-            Login = new IsDataExists((data) => { if (string.IsNullOrEmpty(data)) { throw new Exception("Нет данных"); } return data; })(login!);
-            Password = new IsDataExists((data) => { if (string.IsNullOrEmpty(data)) { throw new Exception("Нет данных"); } return data; })(password!);
+            Name = new IsDataExists((data) => { if (string.IsNullOrEmpty(data)) { throw new Exception("Нет данных"); } else return data; })(name!);
+            Login = new IsDataExists((data) => { if (string.IsNullOrEmpty(data)) { throw new Exception("Нет данных"); } else return data; })(login!);
+            Password = new IsDataExists((data) => { if (string.IsNullOrEmpty(data)) { throw new Exception("Нет данных"); } else return data; })(password!);
         }
         catch (Exception e) 
         {
             Console.WriteLine(e.Message);
         }
-        SaveData($"{Id} {Name} {Login} {Password}");
+        if(string.IsNullOrEmpty(Name) || string.IsNullOrEmpty(Login) || string.IsNullOrEmpty(Password))
+            Console.WriteLine("Данные введены частично!!!");
+        else  
+            SaveData($"{Id} {Name} {Login} {Password}");
     }
     private void SaveData(string dataLine)
     {
