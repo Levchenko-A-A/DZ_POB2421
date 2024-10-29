@@ -13,8 +13,10 @@ foreach (var book in Books)
 }
 string textJson = Books.SerializeBooksToJson(Books);
 Library.SaveToFile("Booksjson.json", textJson);
-string textFromJson = Library.ReadToFile("Booksjson.json");
+
+string textFromJson = Library.ReadFromFile("Booksjson.json");
 Console.WriteLine(textFromJson);
+
 List<Book> Books2 = Books.DeserializeBooksFromJson(textFromJson)!;
 foreach (var book in Books2)
 {
@@ -30,19 +32,29 @@ class Library: IEnumerable
     public void BookAdd(Book book)=>books.Add(book);
     public static void SaveToFile(string filename, string text)
     {
-        using (StreamWriter writer = new StreamWriter(filename, false))
+        if (File.Exists(filename))
         {
-            writer.WriteLineAsync(text);
+            using (StreamWriter writer = new StreamWriter(filename, false))
+            {
+                writer.WriteLineAsync(text);
+                Console.WriteLine("Фаил записан");
+            }
         }
+        else Console.WriteLine("Файл не найден");
     }
-    public static string ReadToFile(string filename)
+    public static string ReadFromFile(string filename)
     {
         string text;
-        using (StreamReader reader = new StreamReader(filename))
+        if (File.Exists(filename))
         {
-            text = reader.ReadToEnd();
+            using (StreamReader reader = new StreamReader(filename))
+            {
+                text = reader.ReadToEnd();
+                Console.WriteLine("Файл прочитан.");
+            }
+            return text;
         }
-        return text;
+        else return "Null";
     }
     public string SerializeBooksToJson(Library books)
     {
