@@ -181,8 +181,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HW-OOP-24", "HW-OOP-24\HW-O
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HW-OOP-22", "HW-OOP-22\HW-OOP-22.csproj", "{F7A27931-2C7B-4B33-8AA1-91A9C6033C11}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lesson17", "..\OOP\OOP2421\Lesson17\Lesson17.csproj", "{4C7C744A-2A57-48F3-B9A5-DB5B809D383B}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -545,10 +543,6 @@ Global
 		{F7A27931-2C7B-4B33-8AA1-91A9C6033C11}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F7A27931-2C7B-4B33-8AA1-91A9C6033C11}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F7A27931-2C7B-4B33-8AA1-91A9C6033C11}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4C7C744A-2A57-48F3-B9A5-DB5B809D383B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4C7C744A-2A57-48F3-B9A5-DB5B809D383B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4C7C744A-2A57-48F3-B9A5-DB5B809D383B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4C7C744A-2A57-48F3-B9A5-DB5B809D383B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
