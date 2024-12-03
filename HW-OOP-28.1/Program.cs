@@ -6,7 +6,7 @@ using System.Drawing.Drawing2D;
 string filePath = "СписокКлиентов.xlsx";
 ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
 ExcelPackage newBook = new ExcelPackage(filePath);
-//newBook.Workbook.Worksheets.Add("Клиенты");
+newBook.Workbook.Worksheets.Add("Клиенты");
 ExcelWorksheet currentWork = newBook.Workbook.Worksheets["Клиенты"];
 List<Client> clients = new List<Client>();
 clients.Add(new Client("Иван", "Иванов", "ivan@example.com"));
@@ -31,4 +31,5 @@ foreach (Client client in clients)
     currentWork.Cells[currentRow, 3].Value = client.Email;
     currentRow++;
 }
+currentWork.Cells["A1:C11"].AutoFitColumns();
 newBook.SaveAs("СписокКлиентов.xlsx");
