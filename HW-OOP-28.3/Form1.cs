@@ -12,9 +12,6 @@ namespace HW_OOP_28._3
             InitializeComponent();
             buttonEdit.Visible = false;
             ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
-
-            //newBook.Workbook.Worksheets.Add("Список");
-            //currentWork = 
         }
 
         private void buttonAdd_Click(object sender, EventArgs e)
