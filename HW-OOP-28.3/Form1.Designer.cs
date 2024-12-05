@@ -50,6 +50,8 @@
             dataGridViewContact.Name = "dataGridViewContact";
             dataGridViewContact.Size = new Size(620, 764);
             dataGridViewContact.TabIndex = 0;
+            dataGridViewContact.CellClick += dataGridViewContact_CellClick;
+            dataGridViewContact.KeyDown += dataGridViewContact_KeyDown;
             // 
             // textBoxFirstName
             // 
@@ -105,6 +107,7 @@
             buttonEdit.TabIndex = 6;
             buttonEdit.Text = "Изменить";
             buttonEdit.UseVisualStyleBackColor = true;
+            buttonEdit.Click += buttonEdit_Click;
             // 
             // textBoxPhone
             // 
@@ -132,6 +135,7 @@
             buttonRead.TabIndex = 9;
             buttonRead.Text = "Прочитать";
             buttonRead.UseVisualStyleBackColor = true;
+            buttonRead.Click += buttonRead_Click;
             // 
             // buttonSave
             // 
