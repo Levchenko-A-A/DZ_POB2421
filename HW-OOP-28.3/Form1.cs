@@ -1,5 +1,7 @@
 using OfficeOpenXml;
 using System.Windows.Forms;
+using static System.Reflection.Metadata.BlobBuilder;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace HW_OOP_28._3
 {
@@ -18,12 +20,12 @@ namespace HW_OOP_28._3
         {
             contacts.Add(new Contact(textBoxFirstName.Text, textBoxLastName.Text, textBoxPatronymic.Text,
                                      textBoxAdress.Text, textBoxPhone.Text, textBoxMail.Text));
-            UpdateForm();
+            UpdateForm(contacts);
         }
-        private void UpdateForm()
+        private void UpdateForm(List<Contact> amp)
         {
             dataGridViewContact.DataSource = null;
-            dataGridViewContact.DataSource = contacts;
+            dataGridViewContact.DataSource = amp;
             textBoxFirstName.Text = string.Empty;
             textBoxLastName.Text = string.Empty;
             textBoxPatronymic.Text = string.Empty;
@@ -74,7 +76,7 @@ namespace HW_OOP_28._3
                 }
 
             }
-            UpdateForm();
+            UpdateForm(contacts);
         }
 
         private void dataGridViewContact_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -103,7 +105,7 @@ namespace HW_OOP_28._3
                 contacts[index].Adress = textBoxAdress.Text;
                 contacts[index].PhoneNumber = textBoxPhone.Text;
                 contacts[index].Email = textBoxMail.Text;
-                UpdateForm();
+                UpdateForm(contacts);
             }
         }
 
@@ -115,9 +117,34 @@ namespace HW_OOP_28._3
                 {
                     int index = dataGridViewContact.SelectedRows[0].Index;
                     contacts.RemoveAt(index);
-                    UpdateForm();
+                    UpdateForm(contacts);
                 }
             }
+        }
+
+        private void buttonSort_Click(object sender, EventArgs e)
+        {
+            List<Contact> result = new List<Contact>();
+
+            string? searchString = textBoxSort.Text;
+            searchString = searchString.ToLower();
+            foreach (Contact contact in contacts)
+            {
+                if (contact.FirstName.ToLower().Contains(searchString))
+                {
+                    result.Add(contact);
+                }
+            }
+            dataGridViewContact.DataSource = null;
+            dataGridViewContact.DataSource = result;
+            UpdateForm(result);
+        }
+
+        private void buttonReset_Click(object sender, EventArgs e)
+        {
+            dataGridViewContact.DataSource = null;
+            dataGridViewContact.DataSource = contacts;
+            UpdateForm(contacts);
         }
     }
 }
