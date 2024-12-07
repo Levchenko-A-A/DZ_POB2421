@@ -57,8 +57,6 @@ namespace HW_OOP_28._3
 
         private void buttonRead_Click(object sender, EventArgs e)
         {
-
-
             using (ExcelPackage newBook2 = new ExcelPackage("Контакты.xlsx"))
             {
                 ExcelWorksheet currentWork = newBook2.Workbook.Worksheets["Список"];
