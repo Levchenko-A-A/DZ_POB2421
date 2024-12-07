@@ -11,28 +11,50 @@ namespace HW_OOP_28._6
         {
             InitializeComponent();
             openFileDialog1.Filter = "Excel files(*.xlsx)|*.xlsx";
+            saveFileDialog1.Filter = "Excel files(*.xlsx)|*.xlsx";
             ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
             dataTable = new DataTable();
         }
 
         private void openFileDialog1_FileOk(object sender, System.ComponentModel.CancelEventArgs e)
         {
-
         }
 
         private void buttonOpen_Click(object sender, EventArgs e)
         {
             if (openFileDialog1.ShowDialog() == DialogResult.Cancel)
                 return;
-            string fileName = openFileDialog1.FileName;
-            ImportExcelToDataTable(fileName);
-            UpdateForm();
+            else
+            {
+                string fileName = openFileDialog1.FileName;
+                dataTable.Clear();
+                ImportExcelToDataTable(fileName);
+                UpdateForm();
+            }
         }
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
-
-
+            if (saveFileDialog1.ShowDialog() == DialogResult.Cancel)
+                return;
+            else
+            {
+                string saveFileName = saveFileDialog1.FileName;
+                using (ExcelPackage package = new ExcelPackage(new FileInfo(saveFileName)))
+                {
+                    ExcelWorksheet worksheet = package.Workbook.Worksheets[0];
+                    for(int i=0; i < dataTable.Columns.Count; i++)
+                        worksheet.Cells[1,i+1].Value = dataTable.Columns[i].ColumnName;
+                    for (int i = 1; i < dataTable.Rows.Count; i++)
+                    {
+                        for (int j = 0; j < dataTable.Columns.Count; j++)
+                        {
+                            worksheet.Cells[i+1, j + 1].Value = dataTable.Rows[i - 1][j].ToString();
+                        }
+                    }
+                    package.Save();
+                }
+            }
         }
         private void UpdateForm()
         {

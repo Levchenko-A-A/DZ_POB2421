@@ -38,6 +38,7 @@
             buttonAddColums = new Button();
             textBoxNameColums = new TextBox();
             buttonAddRow = new Button();
+            saveFileDialog1 = new SaveFileDialog();
             ((System.ComponentModel.ISupportInitialize)dataGridViewExcel).BeginInit();
             SuspendLayout();
             // 
@@ -163,5 +164,6 @@
         private Button buttonAddColums;
         private TextBox textBoxNameColums;
         private Button buttonAddRow;
+        private SaveFileDialog saveFileDialog1;
     }
 }
