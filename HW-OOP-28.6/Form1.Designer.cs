@@ -47,6 +47,7 @@
             dataGridViewExcel.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewExcel.Location = new Point(12, 12);
             dataGridViewExcel.Name = "dataGridViewExcel";
+            dataGridViewExcel.ReadOnly = true;
             dataGridViewExcel.Size = new Size(940, 595);
             dataGridViewExcel.TabIndex = 0;
             dataGridViewExcel.CellClick += dataGridViewExcel_CellClick;
@@ -105,7 +106,7 @@
             // 
             // buttonAddColums
             // 
-            buttonAddColums.Location = new Point(463, 644);
+            buttonAddColums.Location = new Point(597, 646);
             buttonAddColums.Name = "buttonAddColums";
             buttonAddColums.Size = new Size(127, 31);
             buttonAddColums.TabIndex = 6;
@@ -115,7 +116,7 @@
             // 
             // textBoxNameColums
             // 
-            textBoxNameColums.Location = new Point(463, 613);
+            textBoxNameColums.Location = new Point(597, 615);
             textBoxNameColums.Multiline = true;
             textBoxNameColums.Name = "textBoxNameColums";
             textBoxNameColums.Size = new Size(127, 25);
@@ -123,7 +124,7 @@
             // 
             // buttonAddRow
             // 
-            buttonAddRow.Location = new Point(330, 644);
+            buttonAddRow.Location = new Point(464, 646);
             buttonAddRow.Name = "buttonAddRow";
             buttonAddRow.Size = new Size(127, 31);
             buttonAddRow.TabIndex = 8;

@@ -43,16 +43,17 @@ namespace HW_OOP_28._6
                 using (ExcelPackage package = new ExcelPackage(new FileInfo(saveFileName)))
                 {
                     ExcelWorksheet worksheet = package.Workbook.Worksheets[0];
-                    for(int i=0; i < dataTable.Columns.Count; i++)
-                        worksheet.Cells[1,i+1].Value = dataTable.Columns[i].ColumnName;
+                    for (int i = 0; i < dataTable.Columns.Count; i++)
+                        worksheet.Cells[1, i + 1].Value = dataTable.Columns[i].ColumnName;
                     for (int i = 1; i < dataTable.Rows.Count; i++)
                     {
                         for (int j = 0; j < dataTable.Columns.Count; j++)
                         {
-                            worksheet.Cells[i+1, j + 1].Value = dataTable.Rows[i - 1][j].ToString();
+                            worksheet.Cells[i + 1, j + 1].Value = dataTable.Rows[i - 1][j].ToString();
                         }
                     }
                     package.Save();
+                    MessageBox.Show("Файл сохранен");
                 }
             }
         }
@@ -79,6 +80,7 @@ namespace HW_OOP_28._6
                         newRow[cell.Start.Column - 1] = cell.Text;
                     }
                 }
+                MessageBox.Show("Файл открыт и загружен.");
             }
         }
 
@@ -109,7 +111,7 @@ namespace HW_OOP_28._6
 
         private void buttonAddColums_Click(object sender, EventArgs e)
         {
-            if(!string.IsNullOrEmpty(textBoxNameColums.Text))
+            if (!string.IsNullOrEmpty(textBoxNameColums.Text))
                 dataTable.Columns.Add(textBoxNameColums.Text);
         }
 
