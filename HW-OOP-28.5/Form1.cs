@@ -1,3 +1,4 @@
+using System;
 using System.Windows.Forms;
 
 namespace HW_OOP_28._5
@@ -9,6 +10,7 @@ namespace HW_OOP_28._5
         {
             InitializeComponent();
             textBoxStatus.Enabled = false;
+            
         }
         private void UpdateForm()
         {
@@ -38,11 +40,11 @@ namespace HW_OOP_28._5
         {
             if (dataGridViewTask.SelectedCells.Count > 0)
             {
-                int index = dataGridViewTask.SelectedRows[0].Index;
-                textBoxTitle.Text = tasks[index].Title;
-                textBoxStatus.Text = tasks[index].Status;
-                comboBoxPriority.Text = tasks[index].Priority;
-                dateTimePickerTime.Text = tasks[index].Time.ToString();
+                int rowIndex = dataGridViewTask.CurrentCell.RowIndex;                
+                textBoxTitle.Text = tasks[rowIndex].Title;
+                textBoxStatus.Text = tasks[rowIndex].Status;
+                comboBoxPriority.Text = tasks[rowIndex].Priority;
+                dateTimePickerTime.Text = tasks[rowIndex].Time.ToString();
             }
         }
 
@@ -53,12 +55,12 @@ namespace HW_OOP_28._5
 
         private void buttonOk_Click(object sender, EventArgs e)
         {
-            if (dataGridViewTask.SelectedCells.Count > 0)
+            if (dataGridViewTask.SelectedRows.Count > 0)
             {
                 int index = dataGridViewTask.SelectedRows[0].Index;
                 tasks[index].Status = "Выполнено";
                 UpdateForm();
-            }
+            }            
             else UpdateForm();
         }
     }
