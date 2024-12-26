@@ -17,8 +17,8 @@ namespace HW_OOP_32._2
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseNpgsql("Host=localhost;Port=5432;Database=postgres;" +
-                "Username=postgres;Password=postgres");
+            optionsBuilder.UseNpgsql("Host=localhost;Port=6432;Database=postgres;" +
+                "Username=user;Password=postgres");
         }
     }
 }
