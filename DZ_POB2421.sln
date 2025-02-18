@@ -215,6 +215,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HW-OOP-32.2", "HW-OOP-32.2\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HW-OOP-81", "HW-OOP-81\HW-OOP-81.csproj", "{B1B4B456-58F5-4B45-AA16-5C1BA4927FF7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HW-OOP-82", "HW-OOP-82\HW-OOP-82.csproj", "{4657CF3B-CAE0-4CD8-84F0-9399B1AB7E37}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -645,6 +647,10 @@ Global
 		{B1B4B456-58F5-4B45-AA16-5C1BA4927FF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B1B4B456-58F5-4B45-AA16-5C1BA4927FF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B1B4B456-58F5-4B45-AA16-5C1BA4927FF7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4657CF3B-CAE0-4CD8-84F0-9399B1AB7E37}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4657CF3B-CAE0-4CD8-84F0-9399B1AB7E37}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4657CF3B-CAE0-4CD8-84F0-9399B1AB7E37}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4657CF3B-CAE0-4CD8-84F0-9399B1AB7E37}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
