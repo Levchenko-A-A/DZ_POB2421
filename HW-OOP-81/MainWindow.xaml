@@ -1,0 +1,60 @@
+﻿<Window x:Class="HW_OOP_81.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HW_OOP_81"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="420" Width="410
+">
+    <Grid Height="400" Width="400" Margin="5,5,5,0" VerticalAlignment="Top">
+        <Button Content="BTN" HorizontalAlignment="Left" Margin="25,25,0,0" 
+                VerticalAlignment="Top" Height="50" Width="50"
+                Background="#FF0B2DEA" FontSize="16" Foreground="White"/>
+        <Button Content="BTN" HorizontalAlignment="Left" Margin="125,25,0,0" 
+                VerticalAlignment="Top" Height="50" Width="50" 
+                Background="#FF0B2DEA" FontSize="16" Foreground="White"/>
+        <Button Content="BTN" HorizontalAlignment="Left" Margin="225,25,0,0" 
+                VerticalAlignment="Top" Height="50" Width="50"
+                Background="#FF0B2DEA" FontSize="16" Foreground="White"/>
+        <Button Content="BTN" HorizontalAlignment="Left" Margin="325,25,0,0" 
+                VerticalAlignment="Top" Height="50" Width="50"
+                Background="#FF0B2DEA" FontSize="16" Foreground="White"/>
+        <Button Content="BTN" HorizontalAlignment="Left" Margin="25,125,0,0" 
+                VerticalAlignment="Top" Height="50" Width="50" 
+                Background="#FF0B2DEA" FontSize="16" Foreground="White"/>
+        <Button Content="BTN" HorizontalAlignment="Left" Margin="125,125,0,0" 
+                VerticalAlignment="Top" Height="50" Width="50"
+                Background="#FF0B2DEA" FontSize="16" Foreground="White"/>
+        <Button Content="BTN" HorizontalAlignment="Left" Margin="225,125,0,0" 
+                VerticalAlignment="Top" Height="50" Width="50" RenderTransformOrigin="1.45,0.526"
+                Background="#FF0B2DEA" FontSize="16" Foreground="White"/>
+        <Button Content="BTN" HorizontalAlignment="Left" Margin="325,125,0,0" 
+                VerticalAlignment="Top" Height="50" Width="50" RenderTransformOrigin="2.575,0.651"
+                Background="#FF0B2DEA" FontSize="16" Foreground="White"/>
+        <Button Content="BTN" HorizontalAlignment="Left" Margin="25,225,0,0" 
+                VerticalAlignment="Top" Height="50" Width="50" RenderTransformOrigin="0.26,0.551"
+                Background="#FF0B2DEA" FontSize="16" Foreground="White"/>
+        <Button Content="BTN" HorizontalAlignment="Left" Margin="125,225,0,0" 
+                VerticalAlignment="Top" Height="50" Width="50"
+                Background="#FF0B2DEA" FontSize="16" Foreground="White"/>
+        <Button Content="BTN" HorizontalAlignment="Left" Margin="225,225,0,0" 
+                VerticalAlignment="Top" Height="50" Width="50" RenderTransformOrigin="1.45,0.526"
+                Background="#FF0B2DEA" FontSize="16" Foreground="White"/>
+        <Button Content="BTN" HorizontalAlignment="Left" Margin="325,225,0,0" 
+                VerticalAlignment="Top" Height="50" Width="50" RenderTransformOrigin="2.575,0.651"
+                Background="#FF0B2DEA" FontSize="16" Foreground="White"/>
+        <Button Content="BTN" HorizontalAlignment="Left" Margin="25,325,0,25" 
+                Width="50" RenderTransformOrigin="0.26,0.551"
+                Background="#FF0B2DEA" FontSize="16" Foreground="White"/>
+        <Button Content="BTN" HorizontalAlignment="Left" Margin="125,325,0,0" 
+                VerticalAlignment="Top" Height="50" Width="50"
+                Background="#FF0B2DEA" FontSize="16" Foreground="White"/>
+        <Button Content="BTN" HorizontalAlignment="Left" Margin="225,325,0,0" 
+                VerticalAlignment="Top" Height="50" Width="50" RenderTransformOrigin="1.45,0.526"
+                Background="#FF0B2DEA" FontSize="16" Foreground="White"/>
+        <Button Content="BTN" HorizontalAlignment="Left" Margin="325,325,0,0" 
+                VerticalAlignment="Top" Height="50" Width="50" RenderTransformOrigin="2.575,0.651"
+                Background="#FF0B2DEA" FontSize="16" Foreground="White"/>
+    </Grid>
+</Window>
