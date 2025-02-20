@@ -42,5 +42,11 @@
             <Button Content="Кнопка 7" Background="#FFCFE2F3" Margin="8"/>
             <Button Content="Кнопка 8" Background="#FFCFE2F3" Margin="8"/>
         </StackPanel>
+        <StackPanel Grid.Row="1" Grid.Column="2">
+            <Rectangle Fill="LightYellow" Height="30" Margin="8" Stroke="Black"/>
+            <Rectangle Fill="LightYellow" Height="30" Margin="8" Stroke="Black"/>
+            <Rectangle Fill="LightYellow" Height="30" Margin="8" Stroke="Black"/>
+        </StackPanel>
+        <Rectangle Grid.Row="2" Grid.Column="1" Stroke="Black" Fill="LightGreen" Margin="30"/>
     </Grid>
 </Window>
