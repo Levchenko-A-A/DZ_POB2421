@@ -5,8 +5,40 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HW_OOP_88"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" 
+        Title="MainWindow" Height="250" Width="400" 
         Background="#FFFFD966">
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="Width" Value="230"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Border BorderThickness="2" 
+                                Background="#FF93C47D" 
+                                CornerRadius="5"
+                                />
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Foreground" Value="Black"/>
+        </Style>
+        <Style TargetType="TextBox">
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="Margin" Value="15,5,15,0"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Border BorderThickness="12" BorderBrush="White" Background="Green" CornerRadius="5"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style TargetType="TextBlock">
+            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="Margin" Value="30,5,15,0"/>
+        </Style>
+    </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="25*"/>
@@ -14,6 +46,19 @@
             <RowDefinition Height="25*"/>
             <RowDefinition Height="25*"/>
         </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0">
+            <TextBlock >Имя</TextBlock>
+            <TextBox x:Name="TextBoxName"></TextBox>
+        </StackPanel>
+        <StackPanel Grid.Row="1">
+            <TextBlock >Фамилия</TextBlock>
+            <TextBox x:Name="TextBoxLastName"></TextBox>
+        </StackPanel>
+        <StackPanel Grid.Row="2">
+            <TextBlock >Возраст</TextBlock>
+            <TextBox x:Name="TextBoxAge"></TextBox>
+        </StackPanel>
+        <Button Grid.Row="3" Content="Получить данные"/>
     </Grid>
     
 </Window>
