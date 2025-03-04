@@ -8,16 +8,31 @@
         Title="MainWindow" Height="250" Width="400" 
         Background="#FFFFD966">
     <Window.Resources>
-        <Style TargetType="Button">
+        <Style x:Key="ButtonStyle" TargetType="Button">
             <Setter Property="Height" Value="30"/>
             <Setter Property="Width" Value="230"/>
+            <Setter Property="Background" Value="#FF93C47D"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="Padding" Value="10,5"/>
             <Setter Property="Template">
                 <Setter.Value>
-                    <ControlTemplate>
-                        <Border BorderThickness="2" 
-                                Background="#FF93C47D" 
-                                CornerRadius="5"
-                                />
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="border" 
+            Background="{TemplateBinding Background}" 
+            CornerRadius="10" 
+            BorderThickness="1" 
+            BorderBrush="Gray">
+                            <ContentPresenter HorizontalAlignment="Center" 
+                          VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="#FFCCCCCC"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="#FFAAAAAA"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
@@ -58,7 +73,10 @@
             <TextBlock >Возраст</TextBlock>
             <TextBox x:Name="TextBoxAge"></TextBox>
         </StackPanel>
-        <Button Grid.Row="3" Content="Получить данные"/>
+        <Button Grid.Row="3"
+                Style="{StaticResource ButtonStyle}"
+                Content="Получить данные"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"/>
     </Grid>
-    
 </Window>
