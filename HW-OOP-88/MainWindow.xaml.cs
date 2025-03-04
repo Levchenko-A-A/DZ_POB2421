@@ -21,17 +21,8 @@ public partial class MainWindow : Window
         InitializeComponent();
     }
 
-    public class Person
+    private void Button_Click(object sender, RoutedEventArgs e)
     {
-        public string Name { get; set; }
-        public string Surname { get; set; }
-        public int Age { get; set; }
 
-        public Person(string name, string surname, string age)
-        {
-            Name = name;
-            Surname = surname;
-            Age = int.Parse(age);
-        }
     }
 }
